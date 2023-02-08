@@ -1,12 +1,13 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text } from "react-native";
+import React from "react";
+import { Card } from "../components/UI/Card";
 
 const Dashboard = () => {
-    return (
-        <View>
-            <Text> Dashboard </Text>
-        </View>
-    )
-}
+  return (
+    <Card>
+      <Text style={{ color: "#fff" }}> Dashboard </Text>
+    </Card>
+  );
+};
 
-export default Dashboard
+export default Dashboard;
