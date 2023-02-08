@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { Card } from "../components/UI/Card";
-import InputField from "../components/UI/InputField";
+import InputField from "../components/Auth/InputField";
 import Footer from "../components/Auth/Footer";
 import AuthButton from "../components/Auth/AuthButton";
 
