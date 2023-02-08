@@ -1,14 +1,15 @@
 import React from "react";
 import { TextInput, StyleSheet, View } from "react-native";
 
-export default function InputField({ placeholder, onChangeText }) {
+export default function InputField(props, { placeholder, onChangeText }) {
   return (
     <View style={styles.container}>
       <TextInput
-        placeholder={placeholder}
-        onChangeText={onChangeText}
+        placeholder={props.placeholder}
+        onChangeText={props.onChangeText}
         style={styles.inputField}
       />
+      {props.children}
     </View>
   );
 }
