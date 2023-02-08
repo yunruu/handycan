@@ -10,4 +10,4 @@ const Dashboard = ({navigation}) => {
     )
 };
 
-export default Dashboard
+export default Dashboard;
