@@ -1,13 +1,8 @@
 import React from 'react';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, TouchableOpacity, Pressable, Image, Alert } from 'react-native';
-import { buttons, logos, styles, text } from '../style/Styles';
-import Register from './Register';
+import { View, Text, Pressable, Image } from 'react-native';
+import { logos, styles, text } from '../style/Styles';
 import InputTextbox from '../components/UI/InputTextbox';
 import PinkButton from '../components/UI/PinkButton';
-
-// const auth = getAuth();
 
 function Login({ navigation }) {
     const accessRegister = () => navigation.navigate("Register");
