@@ -48,19 +48,9 @@ export async function updateUsername(uid, username) {
 export async function deleteUser(uid) {
     try {
         await deleteDoc(doc(db, "Users", uid));
-        return null;
+        return uid;
     } catch (err) {
         console.log('Error deleting user', err);
-        return uid;
+        return null;
     }
-}
-
-export async function retrieveUser(uid) {
-    const q = query(collection(db, "Users"), where("uid", "==", uid));
-
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-    });
 }
