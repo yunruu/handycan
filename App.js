@@ -1,5 +1,7 @@
-import SearchPage from "./src/screens/SearchPage";
+import AuthStack from './src/navigation/AuthStack';
 
 export default function App() {
-  return <SearchPage />;
+  return (
+    <AuthStack/>
+  )
 }

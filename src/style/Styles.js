@@ -45,7 +45,7 @@ const STYLES = StyleSheet.create({
     }
 })
 
-const buttons = StyleSheet.create({
+const BUTTONS = StyleSheet.create({
     primaryPink: {
         height: 50,
         backgroundColor: COLORS.pink,
@@ -60,7 +60,7 @@ const buttons = StyleSheet.create({
     },
 })
 
-const text = StyleSheet.create({
+const TEXTS = StyleSheet.create({
     header: {
         // fontFamily: 'Inter',
         fontSize: 32,
@@ -73,6 +73,11 @@ const text = StyleSheet.create({
     caption: {
         // fontFamily: 'Inter',
         fontSize: 14,
+    },
+
+    caption16: {
+        // fontFamily: 'Inter',
+        fontSize: 16,
     },
 
     placeholder16: {
@@ -95,7 +100,12 @@ const text = StyleSheet.create({
     },
 })
 
-const logos = StyleSheet.create({
+const LOGOS = StyleSheet.create({
+    microLogo: {
+        width: 20,
+        height: 20,
+    },
+    
     tinyLogo: {
         width: 50,
         height: 50,
@@ -108,4 +118,4 @@ const logos = StyleSheet.create({
     },
 });
 
-export { STYLES, buttons, text, logos };
+export { STYLES, BUTTONS, TEXTS, LOGOS };

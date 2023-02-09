@@ -1,13 +1,13 @@
 import React from "react";
 import { View, Pressable, Text } from "react-native";
-import { buttons, text } from "../../style/Styles";
+import { BUTTONS, TEXTS } from "../../style/Styles";
 
 export default function PinkButton(props, { onPress, textField }) {
     return (
       <View>
-        <Pressable style={ buttons.primaryPink }
+        <Pressable style={ BUTTONS.primaryPink }
             onPress={ props.onPress }>
-              <Text style={ text.colorButtonText }>
+              <Text style={ TEXTS.colorButtonText }>
                 { props.textField }
               </Text>
         </Pressable>
