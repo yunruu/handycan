@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Text, TextInput } from "react-native";
-import colours from "../../styles/colours";
+import { COLORS } from "../../style/Colors";
 
-export default function SearchBar({ onChangeText }) {
+export default function SearchBar({ value, onChangeText }) {
   return (
     <View style={styles.container}>
       <View style={styles.searchBar__unclicked}>
@@ -10,6 +10,7 @@ export default function SearchBar({ onChangeText }) {
           placeholder={"Search"}
           styles={styles.searchInput}
           onChangeText={onChangeText}
+          value={value}
         />
         <View style={styles.userLogo} />
       </View>
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   userLogo: {
-    backgroundColor: colours.pink,
+    backgroundColor: COLORS.pink,
     width: 30,
     height: 30,
     borderRadius: 99,

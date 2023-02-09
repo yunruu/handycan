@@ -1,40 +1,40 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "./Colors";
 
-const styles = StyleSheet.create({
-    containerWhite: {
-        flex: 1,
-        backgroundColor: COLORS.white,
-        alignItems: "center",
-        justifyContent: 'center',
-    },
+const STYLES = StyleSheet.create({
+  containerWhite: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    containerPink: {
-        flex: 1,
-        backgroundColor: COLORS.pink,
-        alignItems: "center",
-        justifyContent: 'center',
-    },
+  containerPink: {
+    flex: 1,
+    backgroundColor: COLORS.pink,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    containerBlue: {
-        backgroundColor: COLORS.blue,
-        alignItems: "center",
-        justifyContent: 'center',
-    },
+  containerBlue: {
+    backgroundColor: COLORS.blue,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    textContainer1: {
-        backgroundColor: '#FFFFFF',
-        borderRadius: 30,
-        shadowColor: '#171717',
-        shadowOffset: {width: 2, height: 4},
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-        height: 50,
-        width: 300,
-        margin: 12,
-        paddingLeft: 21,
-        paddingTop: 15,
-    },
+  textContainer1: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 30,
+    shadowColor: "#171717",
+    shadowOffset: { width: 2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    height: 50,
+    width: 300,
+    margin: 12,
+    paddingLeft: 21,
+    paddingTop: 15,
+  },
 
     transparentContainerHor: {
         flexDirection: 'row', 
@@ -108,4 +108,4 @@ const logos = StyleSheet.create({
     },
 });
 
-export { styles, buttons, text, logos }
+export { STYLES, buttons, text, logos };

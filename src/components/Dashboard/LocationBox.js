@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, View, Text, StyleSheet } from "react-native";
-import colours from "../../styles/colours";
+import { COLORS } from "../../style/Colors";
 import { Card } from "../UI/Card";
 
 const LocationBox = ({ uri, text }) => {
@@ -20,7 +20,7 @@ const LocationBox = ({ uri, text }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colours.white,
+    backgroundColor: COLORS.white,
     borderRadius: 30,
     alignItems: "center",
     width: 200,
