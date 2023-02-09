@@ -1,7 +1,6 @@
 import React from "react";
 import { Image, View, Text, StyleSheet } from "react-native";
 import { COLORS } from "../../style/Colors";
-import { Card } from "../UI/Card";
 
 const LocationBox = ({ uri, text }) => {
   return (

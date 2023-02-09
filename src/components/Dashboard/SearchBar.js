@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import { StyleSheet, View, TextInput } from "react-native";
 import { COLORS } from "../../style/Colors";
 
 export default function SearchBar({ value, onChangeText }) {

@@ -1,5 +1,4 @@
-import { Text, TouchableOpacity, View } from "react-native";
-import { Card } from "../UI/Card";
+import { Text, TouchableOpacity } from "react-native";
 
 export default function Footer({ text, onPress }) {
   return (

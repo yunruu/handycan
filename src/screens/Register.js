@@ -1,6 +1,6 @@
-import { View, Text, TextInput, Image, Pressable, Alert } from 'react-native';
+import { View, Text, Image, Pressable, Alert } from 'react-native';
 import React from 'react';
-import { buttons, logos, styles, text } from '../style/Styles';
+import { logos, styles, text } from '../style/Styles';
 import InputTextbox from '../components/UI/InputTextbox';
 import PinkButton from '../components/UI/PinkButton';
 
