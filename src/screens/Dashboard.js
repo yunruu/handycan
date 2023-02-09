@@ -7,9 +7,11 @@ import colours from "../styles/colours";
 import LocationBox from "../components/Dashboard/LocationBox";
 
 const Dashboard = () => {
+  // Call Backend
+  const onChangeText = () => {};
   return (
     <Card>
-      <SearchBar />
+      <SearchBar onChangeText={onChangeText} />
       <BottomSheet>
         <Text style={styles.text}>Most accessible places</Text>
         <LocationBox text={"Haw Par Villa"} />
