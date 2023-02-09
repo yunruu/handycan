@@ -9,6 +9,8 @@ import Dashboard from "../screens/Dashboard";
 const Stack = createStackNavigator();
 
 export default function AuthStack() {
+  const Stack = createStackNavigator();
+
   return (
     <Stack.Navigator
       screenOptions={{

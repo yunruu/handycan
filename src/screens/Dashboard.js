@@ -14,7 +14,7 @@ const Dashboard = () => {
       </BottomSheet>
     </Card>
   );
-};
+  }
 
 const styles = StyleSheet.create({
   text: {
