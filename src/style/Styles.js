@@ -11,11 +11,15 @@ const styles = StyleSheet.create({
 
     containerPink: {
         flex: 1,
-        backgroundColor: COLORS.pink
+        backgroundColor: COLORS.pink,
+        alignItems: "center",
+        justifyContent: 'center',
     },
 
     containerBlue: {
-        backgroundColor: COLORS.pink
+        backgroundColor: COLORS.blue,
+        alignItems: "center",
+        justifyContent: 'center',
     },
 
     textContainer1: {
@@ -27,9 +31,17 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
         height: 50,
         width: 300,
-        margin: 16,
+        margin: 12,
         paddingLeft: 21,
         paddingTop: 15,
+    },
+
+    transparentContainerHor: {
+        flexDirection: 'row', 
+        backgroundColor: 'transparent', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        margin: 30,
     }
 })
 
@@ -40,9 +52,11 @@ const buttons = StyleSheet.create({
         height: 45,
         width: 150,
         borderRadius: 30,
-        margin: 15,
+        margin: 12,
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'row', 
+        alignItems: 'center'
     },
 })
 

@@ -3,13 +3,13 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, TouchableOpacity, Pressable, Image, Alert } from 'react-native';
 import { buttons, logos, styles, text } from '../style/Styles';
-import { COLORS } from '../style/Colors';
+import Register from './Register';
 
 // const auth = getAuth();
 
 function Login() {
     return (
-        <View style={styles.containerWhite}>
+        <View style={[styles.containerWhite, {paddingTop: 60 }]}>
             <Image 
                 style={logos.mediumLogo}
                 source={require("../../assets/handycan-logo.png")}></Image>
@@ -27,6 +27,15 @@ function Login() {
                     onPress={() => Alert.alert('Login pressed')}>
                         <Text style={text.colorButtonText}>Login</Text>
                 </Pressable>
+            <View style={[styles.transparentContainerHor, { paddingTop: 80 } ]}>
+                <Text style={[text.caption, {fontStyle: 'italic'}]}>
+                    Don’t have an account?
+                </Text>
+                <Pressable onPress={() => Alert.alert('Sign up pressed')} 
+                    style={{flexDirection: 'row', alignItems: 'center', paddingLeft: 5}}>
+                    <Text style={{fontStyle: 'italic', fontWeight: 'bold'}}>Sign up</Text>
+                </Pressable>
+            </View>
         </View>
     )
 }
