@@ -9,7 +9,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import colours from "../../styles/colours";
+import { COLORS } from "../../style/Colors";
 
 /*
     Used tutorial from
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   bottomSheetContainer: {
     height: SCREEN_HEIGHT,
     width: "100%",
-    backgroundColor: colours.purple,
+    backgroundColor: COLORS.blue,
     position: "absolute",
     top: SCREEN_HEIGHT / 1.5,
     borderRadius: 25,
