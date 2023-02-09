@@ -2,11 +2,15 @@ import React from "react";
 import { StyleSheet, View, Text, TextInput } from "react-native";
 import colours from "../../styles/colours";
 
-export default function SearchBar() {
+export default function SearchBar({ onChangeText }) {
   return (
     <View style={styles.container}>
       <View style={styles.searchBar__unclicked}>
-        <TextInput placeholder={"Search"} styles={styles.searchInput} />
+        <TextInput
+          placeholder={"Search"}
+          styles={styles.searchInput}
+          onChangeText={onChangeText}
+        />
         <View style={styles.userLogo} />
       </View>
     </View>
