@@ -9,12 +9,14 @@ const styles = StyleSheet.create({
 
     text_container_1: {
         flexWrap: 'wrap',
-        flexDirection: 'column',
+        alignItems: 'flex-start',
         backgroundColor: '#FFFFFF',
         shadowColor: '#171717',
-        shadowOffset: {width: -2, height: 4},
+        shadowOffset: {width: 2, height: 4},
         shadowOpacity: 0.2,
         shadowRadius: 3,
+        height: 150,
+        width: 150,
     }
 })
 
@@ -25,3 +27,5 @@ const buttons = StyleSheet.create({
         backgroundColor: COLORS.white
     },
 })
+
+export { styles, buttons }
