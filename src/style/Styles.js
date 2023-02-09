@@ -52,7 +52,7 @@ const buttons = StyleSheet.create({
         height: 45,
         width: 150,
         borderRadius: 30,
-        margin: 12,
+        margin: 18,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row', 

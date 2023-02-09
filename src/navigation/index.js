@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth } from '../hooks/useAuth';
-import UserStack from './userStack';
-import AuthStack from './authStack';
+import UserStack from './UserStack';
+import AuthStack from './AuthStack';
 
 export default function RootNavigation() {
   const { user } = useAuth();
