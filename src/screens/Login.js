@@ -1,12 +1,17 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, TouchableOpacity, Button, Image } from 'react-native';
+import { styles } from '../style/Styles';
 
-const Login = () => {
+// const auth = getAuth();
+
+function Login() {
     return (
-        <View>
-            <Text> Login </Text>
+        <View style={styles.text_container_1}>
+            <Text>Login</Text>
         </View>
     )
 }
-
-export default Login
+  
+export default Login;
