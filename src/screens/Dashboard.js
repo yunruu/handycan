@@ -4,6 +4,7 @@ import { Card } from "../components/UI/Card";
 import SearchBar from "../components/Dashboard/SearchBar";
 import BottomSheet from "../components/Dashboard/BottomSheet";
 import colours from "../styles/colours";
+import LocationBox from "../components/Dashboard/LocationBox";
 
 const Dashboard = () => {
   return (
@@ -11,10 +12,11 @@ const Dashboard = () => {
       <SearchBar />
       <BottomSheet>
         <Text style={styles.text}>Most accessible places</Text>
+        <LocationBox text={"Haw Par Villa"} />
       </BottomSheet>
     </Card>
   );
-  }
+};
 
 const styles = StyleSheet.create({
   text: {
