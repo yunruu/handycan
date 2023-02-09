@@ -7,7 +7,9 @@ import Register from './Register';
 
 // const auth = getAuth();
 
-function Login() {
+function Login({ navigation }) {
+    const accessRegister = () => navigation.navigate("Register");
+
     return (
         <View style={[styles.containerWhite, {paddingTop: 60 }]}>
             <Image 
@@ -31,7 +33,7 @@ function Login() {
                 <Text style={[text.caption, {fontStyle: 'italic'}]}>
                     Don’t have an account?
                 </Text>
-                <Pressable onPress={() => Alert.alert('Sign up pressed')} 
+                <Pressable onPress={() => accessRegister()} 
                     style={{flexDirection: 'row', alignItems: 'center', paddingLeft: 5}}>
                     <Text style={{fontStyle: 'italic', fontWeight: 'bold'}}>Sign up</Text>
                 </Pressable>
