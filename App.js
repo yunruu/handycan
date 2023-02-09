@@ -1,7 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
-import RootNavigation from './src/navigation/Index';
+import RootNavigation from './src/navigation/index';
+
+
 
 const Stack = createStackNavigator();
 

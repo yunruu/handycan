@@ -5,6 +5,7 @@ import { db } from "../config/firebaseConfig";
 export async function addUser(uid, username, email) {
     try {     
         await setDoc(doc(db, "Users", uid), {
+            uid: uid,
             username: username,
             email: email,
         });
@@ -20,14 +21,13 @@ export async function getUser(uid) {
     try {
         const docSnap = await getDoc(doc(db, "Users", uid));
         if (docSnap.exists()) {
+            console.log(docSnap.data());
             return docSnap.data();
         } else {
             console.log('User does not exist');
-            return null;
         }
     } catch (err) {
         console.log('Error getting user', err);
-        return null;
     }
 }
 
@@ -53,4 +53,14 @@ export async function deleteUser(uid) {
         console.log('Error deleting user', err);
         return uid;
     }
+}
+
+export async function retrieveUser(uid) {
+    const q = query(collection(db, "Users"), where("uid", "==", uid));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+    });
 }
