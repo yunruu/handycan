@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
+import { COLORS } from "../../style/Colors";
 
 const UserLogo = () => {
   return (
@@ -15,6 +16,8 @@ const UserLogo = () => {
 const styles = StyleSheet.create({
   container: {
     borderRadius: 90,
+    margin: 5,
+    backgroundColor: COLORS.pink,
   },
   userLogo: {
     width: 30,

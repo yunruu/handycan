@@ -1,10 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Review from "./src/components/Review/Review";
+import ReviewScreen from "./src/screens/ReviewScreen";
 
 export default function App() {
-  return <Review></Review>;
+  return <ReviewScreen />;
 }
 
 const styles = StyleSheet.create({
