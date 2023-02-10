@@ -1,10 +1,18 @@
 import React from "react";
 import { StyleSheet, View, Text, TextInput } from "react-native";
 import { COLORS } from "../../style/Colors";
+<<<<<<< HEAD
 
 export default function SearchBar({ value, onChangeText }) {
   return (
     <View style={styles.container}>
+=======
+import { STYLES } from "../../style/Styles";
+
+export default function SearchBar({ value, onChangeText }) {
+  return (
+    <View style={[STYLES.textContainer1, styles.position]}>
+>>>>>>> origin/master
       <View style={styles.searchBar__unclicked}>
         <TextInput
           placeholder={"Search"}
@@ -19,6 +27,7 @@ export default function SearchBar({ value, onChangeText }) {
 }
 
 const styles = StyleSheet.create({
+<<<<<<< HEAD
   container: {
     backgroundColor: "#fff",
     shadowColor: "#171717",
@@ -32,6 +41,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     position: "absolute",
     top: 50,
+=======
+  position: {
+    flexDirection: "row",
+    position: "absolute",
+    top: 20,
+    right: 5,
+    paddingBottom: 15,
+    width: 310,
+>>>>>>> origin/master
   },
   searchBar__unclicked: {
     flexDirection: "row",
