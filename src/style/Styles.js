@@ -2,39 +2,39 @@ import { StyleSheet } from "react-native";
 import { COLORS } from "./Colors";
 
 const STYLES = StyleSheet.create({
-  containerWhite: {
-    flex: 1,
-    backgroundColor: COLORS.white,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    containerWhite: {
+        flex: 1,
+        backgroundColor: COLORS.white,
+        alignItems: "center",
+        justifyContent: "center",
+    },
 
-  containerPink: {
-    flex: 1,
-    backgroundColor: COLORS.pink,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    containerPink: {
+        flex: 1,
+        backgroundColor: COLORS.pink,
+        alignItems: "center",
+        justifyContent: "center",
+    },
 
-  containerBlue: {
-    backgroundColor: COLORS.blue,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    containerBlue: {
+        backgroundColor: COLORS.blue,
+        alignItems: "center",
+        justifyContent: "center",
+    },
 
-  textContainer1: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 30,
-    shadowColor: "#171717",
-    shadowOffset: { width: 2, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    height: 50,
-    width: 300,
-    margin: 12,
-    paddingLeft: 21,
-    paddingTop: 15,
-  },
+    textContainer1: {
+        backgroundColor: "#FFFFFF",
+        borderRadius: 30,
+        shadowColor: "#171717",
+        shadowOffset: { width: 2, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        height: 50,
+        width: 300,
+        margin: 12,
+        paddingLeft: 21,
+        paddingTop: 15,
+    },
 
     transparentContainerHor: {
         flexDirection: 'row', 
@@ -42,6 +42,26 @@ const STYLES = StyleSheet.create({
         justifyContent: 'center', 
         alignItems: 'center',
         margin: 30,
+    },
+
+    whiteBottomSheet: {
+        backgroundColor: COLORS.white,
+        position: 'absolute',
+        height: "90%",
+        width: "100%",
+        flexDirection: "row",
+        top: 82,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    pageHeader: {
+        flexDirection: "row",
+        position: "absolute",
+        top: 28,
+        left: 60,
     }
 })
 
@@ -58,13 +78,35 @@ const BUTTONS = StyleSheet.create({
         flexDirection: 'row', 
         alignItems: 'center'
     },
+
+    returnButton: {
+        flexDirection: "row",
+        position: "absolute",
+        top: 35,
+        left: 20,
+    }
 })
 
 const TEXTS = StyleSheet.create({
     header: {
         // fontFamily: 'Inter',
-        fontSize: 32,
+        fontSize: 26,
+        fontWeight: "bold",
     },
+
+    headerWhite: {
+        // fontFamily: 'Inter',
+        fontSize: 26,
+        fontWeight: '700',
+        color: "#FFFFFF"
+    },
+
+    subHeaderBlack: {
+        // fontFamily: 'Inter',
+        fontSize: 24,
+        fontWeight: '700',
+    },
+
     body: {
         // fontFamily: 'Inter',
         fontSize: 20,
