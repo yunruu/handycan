@@ -1,161 +1,126 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { COLORS } from "./Colors";
 
 const STYLES = StyleSheet.create({
-    containerWhite: {
-        flex: 1,
-        backgroundColor: COLORS.white,
-        alignItems: "center",
-        justifyContent: "center",
-    },
+  containerWhite: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    containerPink: {
-        flex: 1,
-        backgroundColor: COLORS.pink,
-        alignItems: "center",
-        justifyContent: "center",
-    },
+  containerPink: {
+    flex: 1,
+    backgroundColor: COLORS.pink,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    containerBlue: {
-        flex: 1,
-        backgroundColor: COLORS.blue,
-        alignItems: "center",
-        justifyContent: "center",
-    },
+  containerBlue: {
+    backgroundColor: COLORS.blue,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    textContainer1: {
-        backgroundColor: "#FFFFFF",
-        borderRadius: 30,
-        shadowColor: "#171717",
-        shadowOffset: { width: 2, height: 4 },
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-        height: 50,
-        width: 300,
-        margin: 12,
-        paddingLeft: 21,
-        paddingTop: 15,
-    },
+  textContainer1: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 30,
+    shadowColor: "#171717",
+    shadowOffset: { width: 2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    height: 50,
+    width: Dimensions.get("window").width * 0.7,
+    margin: 15,
+    paddingLeft: 20,
+    paddingTop: 15,
+  },
 
-    feedbackContainer: {
-        backgroundColor: COLORS.white,
-        borderWidth: 2,
-        borderColor: COLORS.dark_gray_01,
-        borderRadius: 30,
-        width: 325,
-        height: 230,
-        marginTop: 30,
-        paddingLeft: 15,
-        paddingRight: 10,
-        paddingBottom: 10,
-        paddingTop: 10,
-    },
+  feedbackContainer: {
+    backgroundColor: COLORS.white,
+    borderWidth: 2,
+    borderColor: COLORS.dark_gray_01,
+    borderRadius: 30,
+    width: 325,
+    height: 230,
+    marginTop: 30,
+    paddingLeft: 15,
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingTop: 10,
+  },
 
-    transparentContainerHor: {
-        flexDirection: 'row', 
-        backgroundColor: 'transparent', 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        margin: 30,
-    },
+  transparentContainerHor: {
+    flexDirection: "row",
+    backgroundColor: "transparent",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 30,
+  },
 
-    whiteBottomSheet: {
-        backgroundColor: COLORS.white,
-        position: 'absolute',
-        height: "70%",
-        width: "100%",
-        flexDirection: "row",
-        top: 82,
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-    },
+  whiteBottomSheet: {
+    backgroundColor: COLORS.white,
+    position: "absolute",
+    height: "90%",
+    width: "100%",
+    flexDirection: "row",
+    top: 82,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    pageHeader: {
-        flexDirection: "row",
-        position: "absolute",
-        top: 28,
-        left: 60,
-    },
+  pageHeader: {
+    flexDirection: "row",
+    position: "absolute",
+    top: 28,
+    left: 60,
+  },
 
-    dropdownContainer: {
-        borderRadius: 30,
-        backgroundColor: COLORS.white,
-        borderColor: COLORS.dark_gray_01,
-        borderWidth: 2,
-        width: 325,
-        height: 45,
-    },
+  dropdownContainer: {
+    borderRadius: 30,
+    backgroundColor: COLORS.white,
+    borderColor: COLORS.dark_gray_01,
+    borderWidth: 2,
+    width: 325,
+    height: 45,
+  },
 
-    dropdownMenu: {
-        borderRadius: 30,
-        backgroundColor: COLORS.white,
-        borderColor: COLORS.dark_gray_01,
-    },
+  dropdownMenu: {
+    borderRadius: 30,
+    backgroundColor: COLORS.white,
+    borderColor: COLORS.dark_gray_01,
+  },
 
-    ratingBar: {
-        justifyContent: 'center',
-        flexDirection: 'row',
-    },
+  ratingBar: {
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+});
 
-    profileIcon: {
-        flexDirection: "row",
-        position: "absolute",
-        top: 50,
-        left: 15,
-    },
-
-    searchTool: {
-        flexDirection: "row",
-        position: "absolute",
-        top: 105,
-        right: 45,
-    },
-
-    loadingScreen: {
-        flex: 1,
-        opacity: 0.5,
-        backgroundColor: COLORS.light_pink,
-    },
-
-    listItems: {
-        paddingLeft: 15,
-        paddingRight: 15,
-        justifyContent: 'center',
-        height: 70,
-        borderBottomColor: COLORS.light_gray_01,
-        borderBottomWidth: 1,
-    },
-
-    searchbar: {
-        flexDirection: "row",
-        position: "absolute",
-        top: 80,
-        paddingBottom: 15,
-        width: 320,
-    },
-})
 
 const BUTTONS = StyleSheet.create({
-    primaryPink: {
-        height: 50,
-        backgroundColor: COLORS.pink,
-        height: 45,
-        width: 150,
-        borderRadius: 30,
-        margin: 18,
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row', 
-        alignItems: 'center'
-    },
+  primaryPink: {
+    height: 50,
+    backgroundColor: COLORS.pink,
+    height: 45,
+    width: 150,
+    borderRadius: 30,
+    margin: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+  },
 
-    returnButton: {
-        flexDirection: "row",
-        position: "absolute",
-        top: 35,
-        left: 20,
-    }
-})
+  returnButton: {
+    flexDirection: "row",
+    position: "absolute",
+    top: 35,
+    left: 20,
+  },
+});
 
 const TEXTS = StyleSheet.create({
     header: {
@@ -215,6 +180,12 @@ const TEXTS = StyleSheet.create({
     fontWeight: "bold",
     color: COLORS.white,
   },
+  bottomSheetHeader: {
+    fontWeight: "700",
+    color: COLORS.white,
+    fontSize: 20,
+    alignSelf: "center",
+  },
 });
 
 const LOGOS = StyleSheet.create({
@@ -227,7 +198,6 @@ const LOGOS = StyleSheet.create({
         width: 50,
         height: 50,
     },
-
   mediumLogo: {
     width: 120,
     height: 120,
@@ -236,12 +206,12 @@ const LOGOS = StyleSheet.create({
 });
 
 const SHADOWS = StyleSheet.create({
-    bottomRight: {
-        shadowColor: "#171717",
-        shadowOffset: { width: -2, height: 4 },
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-    }
-})
+  bottomRight: {
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
+});
 
 export { STYLES, BUTTONS, TEXTS, LOGOS, SHADOWS };

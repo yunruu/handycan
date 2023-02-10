@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, FlatList, TouchableOpacity } from 'react-native';
-import firebase from 'firebase/app';
-import 'firebase/database';
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
+import firebase from "firebase/app";
+import "firebase/database";
 
-
-const App = () => {
-  const [searchText, setSearchText] = useState('');
+const NearbyLocations = () => {
+  const [searchText, setSearchText] = useState("");
   const [locations, setLocations] = useState([]);
   const [userLocation, setUserLocation] = useState(null);
 
   useEffect(() => {
-    const firebaseConfig = {
-      // Your Firebase config
-    };
-    firebase.initializeApp(firebaseConfig);
-
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setUserLocation({
           latitude: position.coords.latitude,
-          longitude: position.coords.longitude
+          longitude: position.coords.longitude,
         });
       },
       (error) => console.log(error),
@@ -33,12 +33,14 @@ const App = () => {
     }
 
     const database = firebase.database();
-    const locationsRef = database.ref('locations');
-    locationsRef.on('value', (snapshot) => {
+    const locationsRef = database.ref("locations");
+    locationsRef.on("value", (snapshot) => {
       const locationsData = snapshot.val();
       const filteredLocations = Object.keys(locationsData)
-        .filter(locationKey => locationsData[locationKey].name.includes(searchText))
-        .map(locationKey => locationsData[locationKey]);
+        .filter((locationKey) =>
+          locationsData[locationKey].name.includes(searchText)
+        )
+        .map((locationKey) => locationsData[locationKey]);
       setLocations(filteredLocations);
     });
   }, [userLocation, searchText]);
@@ -49,12 +51,12 @@ const App = () => {
     }
 
     const database = firebase.database();
-    const locationsRef = database.ref('locations');
+    const locationsRef = database.ref("locations");
     const newLocationRef = locationsRef.push();
     newLocationRef.set({
-      name: 'My location',
+      name: "My location",
       latitude: userLocation.latitude,
-      longitude: userLocation.longitude
+      longitude: userLocation.longitude,
     });
   };
 
@@ -70,7 +72,7 @@ const App = () => {
       />
       <FlatList
         data={locations}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View>
             <Text>{item.name}</Text>
@@ -81,4 +83,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default NearbyLocations;

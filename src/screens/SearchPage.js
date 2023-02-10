@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Text, Image, Pressable, View, StyleSheet, Alert, ScrollView } from "react-native";
 import SearchPageBar from "../components/UI/SearchPageBar";
 import { BUTTONS, LOGOS, STYLES, TEXTS } from "../style/Styles";
@@ -98,8 +99,9 @@ function SearchPage ({ navigation }) {
         </ScrollView>
       </WhiteBottomSheet>
     </View>
+
   );
-};
+}
 
 export default SearchPage;
 
