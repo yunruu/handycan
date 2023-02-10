@@ -8,23 +8,13 @@ import { COLORS } from "../style/Colors";
 import { STYLES } from "../style/Styles";
 import { db } from "../config/firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { getReviewList } from "../services/reviewServices";
+import { filterBy } from "../utils/FilterBy";
+import { getLocation } from "../services/locationServices";
 
-const ReviewScreen = ({ placeId, locationName }) => {
+const ReviewScreen = async ({ placeId, locationName }) => {
   // TODO: Tidy up backend
-  const [reviewsData, setReviewsData] = useState([
-    {
-      id: "10001111",
-      placeId: "100",
-      score: 3,
-      tag: "Mobility Accessibility",
-      text1: "1",
-      text2: "2",
-      text3: "3",
-      timestamp: new Date(),
-      uid: 0,
-      username: "Tim0",
-    },
-  ]);
+  const [reviewsData, setReviewsData] = useState([]);
 
   // Skeleton code
   // const reviewsRef = collection(db, "Reviews");
@@ -44,15 +34,19 @@ const ReviewScreen = ({ placeId, locationName }) => {
   //   }
   // };
 
-  // getReviews();
-  // TODO
-  const getTotalRating = () => {
-    return 3.0;
+
+  const reviews = await getReviewList(placeId, null);
+  setReviewsData(reviews);
+
+  const getTotalRating = async () => {
+    const location = await getLocation(placeId);
+    return location.locationScore;
   };
 
   // TODO
-  const getTotalReviews = () => {
-    return 187;
+  const getTotalReviews = async () => {
+    const location = await getLocation(placeId);
+    return location.reviewNumber;
   };
 
   const ReviewHeader = () => {
