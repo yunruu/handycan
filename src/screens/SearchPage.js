@@ -6,21 +6,22 @@ import { Card } from "../components/UI/Card";
 import ProfileIcon from "../components/UI/ProfileIcon";
 import { LOGOS } from "../style/Styles";
 
-function SearchPage ({ locationName, navigation }) {
+function SearchPage({ locationName, navigation }) {
   // TODO
   const onChangeLocation = () => {};
   return (
     <Card>
-      <ProfileIcon onPress={() => navigation.navigate("Login")} 
-        style={styles.container} />
-      
+      <ProfileIcon
+        onPress={() => navigation.navigate("Login")}
+        style={styles.container}
+      />
       <SearchBar value={locationName} onChangeText={onChangeLocation} />
       <BottomSheet>
         <Text>{locationName}</Text>
       </BottomSheet>
     </Card>
   );
-};
+}
 
 export default SearchPage;
 
