@@ -113,6 +113,19 @@ const BUTTONS = StyleSheet.create({
     alignItems: "center",
   },
 
+  whiteButton: {
+    height: 50,
+    backgroundColor: COLORS.white,
+    height: 45,
+    width: 120,
+    borderRadius: 30,
+    margin: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
   returnButton: {
     flexDirection: "row",
     position: "absolute",
@@ -178,6 +191,12 @@ const TEXTS = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: COLORS.white,
+  },
+  whiteButtonText: {
+    // fontFamily: 'Inter',
+    fontSize: 16,
+    fontWeight: "bold",
+    color: COLORS.black,
   },
   bottomSheetHeader: {
     fontWeight: "700",

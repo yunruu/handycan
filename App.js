@@ -1,6 +1,5 @@
-import ProfileIcon from "./src/components/UI/ProfileIcon";
-import Dashboard from "./src/screens/Dashboard";
+import ResultScreen from "./src/screens/ResultScreen";
 
 export default function App() {
-  return <Dashboard />;
+  return <ResultScreen />;
 }
