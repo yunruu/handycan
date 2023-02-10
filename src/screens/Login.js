@@ -1,15 +1,30 @@
 import React from 'react';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, TouchableOpacity, Button, Image } from 'react-native';
-import { styles } from '../style/Styles';
+import { View, Text, Pressable, Image } from 'react-native';
+import { LOGOS, STYLES, TEXTS } from '../style/Styles';
+import InputTextbox from '../components/UI/InputTextbox';
+import PinkButton from '../components/UI/PinkButton';
 
-// const auth = getAuth();
+function Login({ navigation }) {
+    const accessRegister = () => navigation.navigate("Register");
+    const accessDashboard = () => navigation.navigate("Dashboard");
 
-function Login() {
     return (
-        <View style={styles.text_container_1}>
-            <Text>Login</Text>
+        <View style={[STYLES.containerWhite, {paddingTop: 80 }]}>
+            <Image 
+                style={LOGOS.mediumLogo}
+                source={require("../../assets/handycan-logo.png")} />
+            <InputTextbox placeholder={"Email"} />
+            <InputTextbox placeholder={"Password"} secureTextEntry={true}/>
+            <PinkButton onPress={() => accessDashboard()} textField={"Login"} />
+            <View style={[STYLES.transparentContainerHor, { paddingTop: 80 } ]}>
+                <Text style={[TEXTS.caption, {fontStyle: 'italic'}]}>
+                    Don’t have an account?
+                </Text>
+                <Pressable onPress={() => accessRegister()} 
+                    style={{flexDirection: 'row', alignItems: 'center', paddingLeft: 5}}>
+                    <Text style={{fontStyle: 'italic', fontWeight: 'bold'}}>Sign up</Text>
+                </Pressable>
+            </View>
         </View>
     )
 }
