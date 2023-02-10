@@ -10,7 +10,7 @@ import DropdownMenu from '../components/UI/DropdownMenu'
 const disabilityType = ["Audio", "Mobility", "Visual", "Mental", "Other"];
 const maxRating = [1,2,3,4,5];
 
-function Feedback({ navigation, placeId }) {
+function Feedback({ navigation, locationName }) {
     const [rating, setRating] = useState(0);
     const [feedback, onChangeFeedback] = useState("");
     const [disability, setDisability] = useState("");
@@ -18,11 +18,9 @@ function Feedback({ navigation, placeId }) {
     const submitFeedback = () => {
         if (feedback == "") {
             Alert.alert("There is no feedback. \n Write one now!")
-        }
-        if (disability == "") {
+        } else if (disability == "") {
             Alert.alert("Select a disability type.");
-        }
-        if (rating == 0) {
+        } else if (rating == 0) {
             Alert.alert("Give an accessibility rating.")
         }
         // pass rating, feedback and disability to firebase on submit
@@ -32,10 +30,10 @@ function Feedback({ navigation, placeId }) {
         <View style={STYLES.containerPink}>
             <ReturnButton onPress={() => navigation.navigate("Dashboard")} style={BUTTONS.returnButton} />
             <PageHeader header={"Feedback"} />
-            <WhiteBottomSheet>
+            <WhiteBottomSheet alignItems={"center"} justifyContent={"center"}>
                 {/* To pass in location name from feedback page caller */}
                 <View style={{ alignItems: 'center' }}>
-                    <Text style={TEXTS.subHeaderBlack}>Random Burger Place</Text>
+                    <Text style={TEXTS.subHeaderBlack}>{locationName}</Text>
                     <View style={STYLES.transparentContainerHor}>
                         <Text style={[TEXTS.caption16, {paddingRight: 5}]}>
                             Accessibility Rating:
@@ -62,7 +60,8 @@ function Feedback({ navigation, placeId }) {
                     </View>
                     <DropdownMenu 
                         options={disabilityType} 
-                        onSelect={(disability) => setDisability(disability)}/>
+                        onSelect={(disability) => setDisability(disability)}
+                        defaultButtonText={'Type of disability'}/>
                     <View style={STYLES.feedbackContainer}>
                         <TextInput
                             multiline={true}

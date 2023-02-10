@@ -3,14 +3,14 @@ import React from 'react'
 import { STYLES, LOGOS, TEXTS } from '../../style/Styles'
 import SelectDropdown from 'react-native-select-dropdown'
 
-const DropdownMenu = ({ options, onSelect }) => {
+const DropdownMenu = ({ options, onSelect, defaultButtonText, buttonStyle, dropdownStyle }) => {
     return (
         <SelectDropdown
             data={options}
             onSelect={(selectedItem, index) => onSelect(selectedItem)}
-            defaultButtonText={'Select type of disability'}
-            buttonStyle={STYLES.dropdownContainer}
-            dropdownStyle={STYLES.dropdownMenu}
+            defaultButtonText={defaultButtonText}
+            buttonStyle={buttonStyle || STYLES.dropdownContainer}
+            dropdownStyle={dropdownStyle || STYLES.dropdownMenu}
             dropdownIconPosition='right'
             renderDropdownIcon={(isOpen) => {
                 return(
