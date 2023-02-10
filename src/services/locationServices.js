@@ -3,6 +3,7 @@ import { doc, setDoc, getDoc, updateDoc, collection, query, where, getDocs, limi
 import { disabilityTag } from "../utils/DisabilityTag";
 import { filterBy } from "../utils/FilterBy";
 import { sortBy } from "../utils/SortBy";
+import { calcDist } from "../utils/CalcDist";
 
 /* CREATE */
 /**
@@ -71,9 +72,11 @@ export async function getLocation(placeId) {
  * @param {String} string String prefix matching location names
  * @param {filterBy} filterType Type of filter to apply
  * @param {sortBy} sortType Type of sorting to apply
+ * @param {int} currLat Latitude of current location
+ * @param {int} currLon Longitude of current location
  * @returns Array of location objects with name prefix matching the given string after filtering and sorting
  */
-export async function getLocationList(string, filterType, sortType) {
+export async function getLocationList(string, filterType, sortType, currLat, currLon) {
     //Query based on prefix match with string and limit to at most 20
     let q = query(collection(db, "Locations"), 
         where('name', '>=', string),
@@ -140,7 +143,6 @@ export async function getLocationList(string, filterType, sortType) {
 
     //Sort list based on sort type
     let sortedList = null;
-    sortedList = filteredList.sort((locA, locB) => locA.score )
     switch (sortType) {
         case sortBy.SCORE:
             sortedList = filteredList.sort((locA, locB) => locA.scoreType - locB.scoreType);
@@ -149,7 +151,7 @@ export async function getLocationList(string, filterType, sortType) {
             sortedList = filteredList.sort((locA, locB) => locA.reviewNumber - locB.reviewNumber);
             break;
         case sortBy.DISTANCE:
-            sortedList = filteredList.sort((locA, locB) => locA.long - locB.long);       
+            sortedList = filteredList.sort((locA, locB) => calcDist(currLat, currLon, locB.lat, locB.long) - calcDist(currLat, currLon, locA.lat, locA.long));       
             break;
         default:
             sortedList = filteredList.sort((locA, locB) => locA.scoreType - locB.scoreType);
