@@ -11,7 +11,6 @@ export default function PinkButton(props, { onPress, textField }) {
                 { props.textField }
               </Text>
         </Pressable>
-        { props.children }
       </View>
     )
 }
