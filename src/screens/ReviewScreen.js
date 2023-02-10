@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { FlatList, StyleSheet, Text, View } from "react-native";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import Rating from "../components/Review/Rating";
 import Review from "../components/Review/Review";
 import { Card } from "../components/UI/Card";
@@ -34,21 +34,27 @@ const ReviewScreen = ({ locationName }) => {
     );
   };
 
+  const renderItem = () => {
+    return (
+      <Review
+        username={"johntan"}
+        timestamp={"07/02/2023 8:43pm"}
+        rating={3}
+        goodpt={"Lots of ramp and staff is very friendly to wheelchair users!"}
+        aoi={"Wide alleys and good food too!"}
+        suggestions={"Definitely recommend"}
+      />
+    );
+  };
   return (
     <View style={STYLES.containerPink}>
       <View style={styles.reviewsContainer}>
         <Text style={styles.restaurantName}>{locationName}</Text>
         <ReviewHeader />
-        <Review
-          username={"johntan"}
-          timestamp={"07/02/2023 8:43pm"}
-          rating={3}
-          goodpt={
-            "Lots of ramp and staff is very friendly to wheelchair users!"
-          }
-          aoi={"Wide alleys and good food too!"}
-          suggestions={"Definitely recommend"}
-        />
+        <FlatList
+          data={[{ review: "review1" }]}
+          renderItem={renderItem}
+        ></FlatList>
       </View>
     </View>
   );
