@@ -8,6 +8,7 @@ function Login({ navigation }) {
     const accessRegister = () => navigation.navigate("Register");
     const accessDashboard = () => navigation.navigate("Dashboard");
 
+
     return (
         <View style={[STYLES.containerWhite, {paddingTop: 80 }]}>
             <Image 
