@@ -1,10 +1,6 @@
 import React from "react";
 import { Image, View, Text, StyleSheet } from "react-native";
 import { COLORS } from "../../style/Colors";
-<<<<<<< HEAD
-import { Card } from "../UI/Card";
-=======
->>>>>>> origin/master
 
 const LocationBox = ({ uri, text }) => {
   return (
