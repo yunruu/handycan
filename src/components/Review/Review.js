@@ -7,13 +7,11 @@ import Rating from "./Rating";
 
 const Review = ({ username, timestamp, rating, goodpt, aoi, suggestions }) => {
   return (
-    <Card>
-      <View style={styles.container}>
-        <Header username={username} timestamp={timestamp} />
-        <Rating rating={rating} />
-        <ReviewText goodpt={goodpt} aoi={aoi} suggestions={suggestions} />
-      </View>
-    </Card>
+    <View style={styles.container}>
+      <Header username={username} timestamp={timestamp} />
+      <Rating rating={rating} />
+      <ReviewText goodpt={goodpt} aoi={aoi} suggestions={suggestions} />
+    </View>
   );
 };
 
@@ -45,7 +43,7 @@ const ReviewText = ({ goodpt, aoi, suggestions }) => {
 const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
-    margin: 10,
+    margin: 5,
     padding: 15,
     borderColor: COLORS.black,
     borderWidth: 2,
