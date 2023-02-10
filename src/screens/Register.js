@@ -55,4 +55,5 @@ function Register({ navigation }) {
     )
 };
 
-export default Register
+
+export default Register;

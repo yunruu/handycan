@@ -203,19 +203,19 @@ const TEXTS = StyleSheet.create({
         color: COLORS.light_gray_02,
     },
 
-    placeholder14: {
-        // fontFamily: 'Inter',
-        fontSize: 14,
-        color: COLORS.light_gray_02,
-    },
+  placeholder14: {
+    // fontFamily: 'Inter',
+    fontSize: 14,
+    color: COLORS.light_gray_02,
+  },
 
-    colorButtonText: {
-        // fontFamily: 'Inter',
-        fontSize: 16,
-        fontWeight: "bold",
-        color: COLORS.white,
-    },
-})
+  colorButtonText: {
+    // fontFamily: 'Inter',
+    fontSize: 16,
+    fontWeight: "bold",
+    color: COLORS.white,
+  },
+});
 
 const LOGOS = StyleSheet.create({
     microLogo: {
@@ -228,11 +228,11 @@ const LOGOS = StyleSheet.create({
         height: 50,
     },
 
-    mediumLogo: {
-        width: 120,
-        height: 120,
-        margin: 15,
-    },
+  mediumLogo: {
+    width: 120,
+    height: 120,
+    margin: 15,
+  },
 });
 
 const SHADOWS = StyleSheet.create({

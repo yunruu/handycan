@@ -1,4 +1,5 @@
 import React from "react";
+
 import { View, Pressable, Text } from "react-native";
 import { BUTTONS, TEXTS } from "../../style/Styles";
 
@@ -14,3 +15,4 @@ export default function PinkButton(props, { onPress, textField }) {
       </View>
     )
 }
+
