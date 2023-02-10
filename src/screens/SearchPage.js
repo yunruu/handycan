@@ -23,7 +23,7 @@ function SearchPage ({ navigation }) {
   const [searchedPName, setSearchedPName] = React.useState("");
   
   async function getSearchQueries(searchQuery, filterType, sortType) {
-    const data = await getLocationList(searchQuery, filterType, sortType)
+    const data = await getLocationList(searchQuery, filterType, sortType, 0, 0);
     setSearchRes(data);
   }
 
