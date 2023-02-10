@@ -4,8 +4,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { LOGOS } from '../../style/Styles';
 import { useState } from 'react';
 
-const RatingBar = () => {
-    const [defaultRating, setDefautlRating] = useState(0);
+const RatingBar = ({ onPress }) => {
+    const [rating, setRating] = useState(0);
     const [maxRating, setMaxRating] = useState([1,2,3,4,5]);
 
     return (
@@ -16,8 +16,8 @@ const RatingBar = () => {
                     <TouchableOpacity 
                         activeOpacity={0.7} 
                         key={item} 
-                        onPress={() => setDefautlRating(item)}>
-                            <Image source={item <= defaultRating
+                        onPress={() => { setRating(item); }}>
+                            <Image source={item <= rating
                                         ? require("../../../assets/star-filled.png")
                                         : require("../../../assets/star-empty.png")} 
                                         style={[LOGOS.microLogo, {marginLeft: 2}]} />
