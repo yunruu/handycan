@@ -36,76 +36,76 @@ const STYLES = StyleSheet.create({
     paddingTop: 15,
   },
 
-    transparentContainerHor: {
-        flexDirection: 'row', 
-        backgroundColor: 'transparent', 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        margin: 30,
-    }
-})
-
-const buttons = StyleSheet.create({
-    primaryPink: {
-        height: 50,
-        backgroundColor: COLORS.pink,
-        height: 45,
-        width: 150,
-        borderRadius: 30,
-        margin: 18,
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row', 
-        alignItems: 'center'
-    },
-})
-
-const text = StyleSheet.create({
-    header: {
-        // fontFamily: 'Inter',
-        fontSize: 32,
-    },
-    body: {
-        // fontFamily: 'Inter',
-        fontSize: 20,
-    },
-
-    caption: {
-        // fontFamily: 'Inter',
-        fontSize: 14,
-    },
-
-    placeholder16: {
-        // fontFamily: 'Inter',
-        fontSize: 16,
-        color: COLORS.light_gray_02,
-    },
-
-    placeholder14: {
-        // fontFamily: 'Inter',
-        fontSize: 14,
-        color: COLORS.light_gray_02,
-    },
-
-    colorButtonText: {
-        // fontFamily: 'Inter',
-        fontSize: 16,
-        fontWeight: "bold",
-        color: COLORS.white,
-    },
-})
-
-const logos = StyleSheet.create({
-    tinyLogo: {
-        width: 50,
-        height: 50,
-    },
-
-    mediumLogo: {
-        width: 120,
-        height: 120,
-        margin: 15,
-    },
+  transparentContainerHor: {
+    flexDirection: "row",
+    backgroundColor: "transparent",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 30,
+  },
 });
 
-export { STYLES, buttons, text, logos };
+const BUTTONS = StyleSheet.create({
+  primaryPink: {
+    height: 50,
+    backgroundColor: COLORS.pink,
+    height: 45,
+    width: 150,
+    borderRadius: 30,
+    margin: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+});
+
+const TEXT = StyleSheet.create({
+  header: {
+    // fontFamily: 'Inter',
+    fontSize: 32,
+  },
+  body: {
+    // fontFamily: 'Inter',
+    fontSize: 20,
+  },
+
+  caption: {
+    // fontFamily: 'Inter',
+    fontSize: 14,
+  },
+
+  placeholder16: {
+    // fontFamily: 'Inter',
+    fontSize: 16,
+    color: COLORS.light_gray_02,
+  },
+
+  placeholder14: {
+    // fontFamily: 'Inter',
+    fontSize: 14,
+    color: COLORS.light_gray_02,
+  },
+
+  colorButtonText: {
+    // fontFamily: 'Inter',
+    fontSize: 16,
+    fontWeight: "bold",
+    color: COLORS.white,
+  },
+});
+
+const LOGOS = StyleSheet.create({
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+
+  mediumLogo: {
+    width: 120,
+    height: 120,
+    margin: 15,
+  },
+});
+
+export { STYLES, BUTTONS, TEXT, LOGOS };

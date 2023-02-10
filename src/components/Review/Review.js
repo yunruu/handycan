@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     margin: 5,
     padding: 15,
-    borderColor: COLORS.black,
+    borderColor: COLORS.dark_gray_01,
     borderWidth: 2,
     borderRadius: 30,
   },
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   reviewTextContainer: {
-    margin: 5,
+    marginRight: 10,
   },
   reviewTextTitle: {
     fontWeight: "bold",

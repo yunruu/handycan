@@ -8,7 +8,7 @@ const Rating = ({ rating, numberOfReviews }) => {
   let hands = [];
 
   for (var i = 0; i < 5; i++) {
-    if (i <= rating) {
+    if (i < rating) {
       hands.push(
         <MaterialCommunityIcons
           key={i}
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    marginHorizontal: 5,
   },
 });
 

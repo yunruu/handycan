@@ -16,7 +16,8 @@ const UserLogo = () => {
 const styles = StyleSheet.create({
   container: {
     borderRadius: 90,
-    margin: 5,
+    marginRight: 5,
+    marginVertical: 5,
     backgroundColor: COLORS.pink,
   },
   userLogo: {
