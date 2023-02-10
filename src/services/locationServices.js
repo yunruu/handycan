@@ -5,6 +5,14 @@ import { filterBy } from "../utils/FilterBy";
 import { sortBy } from "../utils/SortBy";
 
 /* CREATE */
+/**
+ * Add a location to database containing essential details
+ * @param {String} placeId Textual identifier in accordance to Google Maps API location placeId
+ * @param {String} name
+ * @param {*} long Longitude
+ * @param {*} lat Latitude
+ * @returns placeId if successful, null if not
+ */
 export async function addLocation(placeId, name, long, lat) {
     try {
         //Check if location already exists
@@ -34,6 +42,11 @@ export async function addLocation(placeId, name, long, lat) {
 }
 
 /* READ */
+/**
+ * Retrieves a location object from database
+ * @param {String} placeId Textual identifier in accordance to Google Maps API location placeId
+ * @returns placeId if successful, null if not
+ */
 export async function getLocation(placeId) {
     try {
         const docSnap = await getDoc(doc(db, "Locations", placeId));
@@ -49,6 +62,17 @@ export async function getLocation(placeId) {
     }
 }
 
+/**
+ * Retrieves a list of location objects with name prefix matching the given string after filtering and sorting.
+ * The function will atmost return 20 location objects from database.
+ * Location objects have the following fields accessible by dot notation:
+ * placeId, name, long, lat, reviewNumber, locationScore, audioScore, mobilityScore, visualScore, mentalScore, otherScore
+ * The various scores are averages based on the reviews for a location, they can be null if no reviews with the tags exist.
+ * @param {String} string String prefix matching location names
+ * @param {filterBy} filterType Type of filter to apply
+ * @param {sortBy} sortType Type of sorting to apply
+ * @returns Array of location objects with name prefix matching the given string after filtering and sorting
+ */
 export async function getLocationList(string, filterType, sortType) {
     //Query based on prefix match with string and limit to at most 20
     let q = query(collection(db, "Locations"), 

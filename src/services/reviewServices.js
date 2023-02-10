@@ -6,6 +6,21 @@ import { updateLocationAddReview, updateLocationDeleteReview } from "./LocationS
 
 /* CREATE */
 //To update review, call deleteReview and addReview with same placeId and uid.
+/**
+ * Adds review to the database for a given location. 
+ * Note that a review is unique based on its placeId, uid and tag.
+ * Duplicate reviews based on the above criteria will be rejected.
+ * To update a review, call deleteReview and addReview with same placeId and uid.
+ * @param {String} placeId Textual identifier in accordance to Google Maps API location placeId
+ * @param {String} uid User id on Firebase Authentication
+ * @param {String} username Username of user to be displayed
+ * @param {String} text1 What did you like about this place?
+ * @param {String} text2 What did you feel could be improved on?
+ * @param {String} text3 What are suggestions of improvement
+ * @param {disabilityTag} tag Disability tag assigned to the review
+ * @param {int} score Score for the location on its disability accessibility out of 5
+ * @returns placeId if successful, null if not
+ */
 export async function addReview(placeId, uid, username, text1, text2, text3, tag, score) {
     if (!Object.values(disabilityTag).includes(tag)) {
         console.log("Tag is invalid");
@@ -82,6 +97,15 @@ export async function addReview(placeId, uid, username, text1, text2, text3, tag
 }
 
 /* READ */
+/**
+ * Retrieves a list of review objects for a given location from database after filtering. 
+ * It is sorted in chronological order from most recent to least recent.
+ * Review objects have the following fields accessible by dot notation:
+ * placeId, uid, tag, text1, text2, text3, score, timestamp (based on server time GMT +8)
+ * @param {String} placeId Textual identifier in accordance to Google Maps API location placeId
+ * @param {filterBy} filterType Type of filter to apply
+ * @returns Array of review objects for a given location from database after filtering. 
+ */
 export async function getReviewList(placeId, filterType) {
     //Get all reviews on location
     let q = query(collection(db, "Reviews"), where("placeId", "==", placeId));
@@ -120,6 +144,16 @@ export async function getReviewList(placeId, filterType) {
 }
 
 /* DELETE */
+/**
+ * Deletes review from the database for a given location. 
+ * Note that a review is unique based on its placeId, uid and tag.
+ * Duplicate reviews based on the above criteria will be rejected.
+ * To update a review, call deleteReview and addReview with same placeId and uid.
+ * @param {String} placeId Textual identifier in accordance to Google Maps API location placeId
+ * @param {String} uid User id on Firebase Authentication
+ * @param {disabilityTa} tag Disability tag assigned to the review
+ * @returns placeId if successful, null if not
+ */
 export async function deleteReview(placeId, uid, tag) {
     if (!Object.values(disabilityTag).includes(tag)) {
         console.log("Tag is invalid");
