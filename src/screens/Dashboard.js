@@ -29,7 +29,7 @@ const Dashboard = ({ navigation }) => {
 export default Dashboard;
 
 const styles = StyleSheet.create({
-  container: {
+  profileIcon: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",

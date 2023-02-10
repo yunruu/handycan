@@ -99,6 +99,7 @@ const STYLES = StyleSheet.create({
   },
 });
 
+
 const BUTTONS = StyleSheet.create({
   primaryPink: {
     height: 50,
@@ -122,6 +123,7 @@ const BUTTONS = StyleSheet.create({
 });
 
 const TEXTS = StyleSheet.create({
+
   header: {
     // fontFamily: 'Inter',
     fontSize: 26,
