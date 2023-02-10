@@ -30,7 +30,7 @@ function Feedback({ navigation, locationName }) {
         <View style={STYLES.containerPink}>
             <ReturnButton onPress={() => navigation.navigate("Dashboard")} style={BUTTONS.returnButton} />
             <PageHeader header={"Feedback"} />
-            <WhiteBottomSheet alignItems={"center"} justifyContent={"center"}>
+            <WhiteBottomSheet alignItems={"center"} justifyContent={"center"} height={"90%"}>
                 {/* To pass in location name from feedback page caller */}
                 <View style={{ alignItems: 'center' }}>
                     <Text style={TEXTS.subHeaderBlack}>{locationName}</Text>

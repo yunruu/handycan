@@ -2,13 +2,11 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-
 import Login from '../screens/Login';
 import Register from '../screens/Register';
 import Dashboard from '../screens/Dashboard';
 import SearchPage from '../screens/SearchPage';
 import Feedback from '../screens/Feedback';
-
 
 const Stack = createStackNavigator();
 
@@ -20,7 +18,7 @@ export default function AuthStack() {
             <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
             <Stack.Screen name="Register" component={Register} options={{headerShown: false}} />
             <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown: false}} />
-            <Stack.Screen name="Feedback" component={Dashboard} options={{headerShown: false}} />
+            <Stack.Screen name="Feedback" component={Feedback} options={{headerShown: false}} />
         </Stack.Navigator>
     </NavigationContainer>
   );
