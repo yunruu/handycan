@@ -14,11 +14,11 @@ export default function AuthStack() {
   return (
     <NavigationContainer>
         <Stack.Navigator>
-            <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown: false}} />
-            <Stack.Screen name="Feedback" component={Feedback} options={{headerShown: false}} />
             <Stack.Screen name="SearchPage" component={SearchPage} options={{headerShown: false}} />
             <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
             <Stack.Screen name="Register" component={Register} options={{headerShown: false}} />
+            <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown: false}} />
+            <Stack.Screen name="Feedback" component={Feedback} options={{headerShown: false}} />
         </Stack.Navigator>
     </NavigationContainer>
   );
