@@ -1,15 +1,11 @@
 import React from "react";
-
-import { Text, Image, Pressable, View, StyleSheet, Alert, ScrollView } from "react-native";
-import SearchPageBar from "../components/UI/SearchPageBar";
-import { BUTTONS, LOGOS, STYLES, TEXTS } from "../style/Styles";
-import { filterBy, getLocation, getLocationList } from '../services/locationServices'
+import { View, StyleSheet, Alert } from "react-native";
+import { BUTTONS } from "../style/Styles";
+import { getLocationList } from '../services/locationServices'
 import ReturnButton from "../components/UI/ReturnButton";
 import PageHeader from "../components/UI/PageHeader";
-import WhiteBottomSheet from "../components/UI/WhiteBottomSheet";
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { COLORS } from "../style/Colors";
-import DropdownMenu from "../components/UI/DropdownMenu";
 
 
 const round2dp = (val) => {
@@ -24,21 +20,14 @@ function SearchPage ({ navigation }) {
   const [filterType, setFilterType] = React.useState(-1);
   const [sortType, setSortType] = React.useState(-1);
   const [searchedPid, setSearchedPid] = React.useState(-1);
-
-  // React.useEffect(() => {
-  //   async function getSearchQueries(searchQuery, filterType, sortType) {
-  //     const data = await getLocationList(searchQuery, filterType, sortType)
-  //     setSearchRes(data);
-  //   }
-  //   getSearchQueries()
-  // }, []);
+  const [searchedPName, setSearchedPName] = React.useState("");
   
   async function getSearchQueries(searchQuery, filterType, sortType) {
     const data = await getLocationList(searchQuery, filterType, sortType)
     setSearchRes(data);
   }
 
-  const searchLocation = () => {
+  const searchLocation = (searchQuery) => {
     if (searchQuery == "") {
       Alert.alert("Please enter a place to search for.");
     } else {
@@ -53,36 +42,30 @@ function SearchPage ({ navigation }) {
   }
 
   return (
-    <View style={STYLES.containerBlue}>
-      <ReturnButton onPress={() => navigation.navigate("Dashboard")} style={BUTTONS.returnButton} />
+    <View style={styles.containerBlue}>
       <PageHeader header={"Search"} />
       {/* <SearchPageBar value={searchQuery} onChangeText={(searchQuery) => setSearchQuery(searchQuery)} /> */}
       <GooglePlacesAutocomplete 
         placeholder='Search' 
-        styles={{
-          textInputContainer: {
-            width: 320,
-            margin: 95,
-          },
-          textInput: {
-            height: 45,
-            color: COLORS.dark_gray_02,
-            fontSize: 16,
-            borderRadius: 30,
-            paddingHorizontal: 15, }}} 
-        onPress={(data, details = null) => {
+        styles={styles.searchBar}
+        onPress={(data) => {
           // 'details' is provided when fetchDetails = true
-          console.log(data, details); }} 
+          setSearchedPName(data.description); 
+          setSearchedPid(data.place_id); 
+          // navigation.navigate("Result", {placeName: searchedPName, placeId: searchedPid});
+        }} 
         query={{key: process.env.GOOGLE_MAPS_API_KEY, components: 'country:sg'}} 
         fetchDetails={true} 
+        listViewDisplayed="auto"
         onFail={error => console.log(error)}
         onNotFound={() => console.log('no results')} />
+      <ReturnButton onPress={() => navigation.navigate("Dashboard")} style={BUTTONS.returnButton} />
       {/* <SearchTool style={STYLES.searchTool} onPress={() => searchLocation()} /> */}
-      <View style={{position:'absolute', top:150, right: 30}}>
+      {/* <View style={{position:'absolute', top:150, right: 30}}>
         <DropdownMenu onSelect={(filterType)=>setFilterType(filterType)} defaultButtonText={"Filter"} 
           options={filterTypes} buttonStyle={styles.dropdownContainer} dropdownStyle={styles.dropdownMenu} />
-      </View>
-      <WhiteBottomSheet top={200} >
+      </View> */}
+      {/* <WhiteBottomSheet top={200} height={"70%"}>
         <ScrollView style={{paddingTop: 20}}>
           {
             searchRes == [] 
@@ -97,7 +80,7 @@ function SearchPage ({ navigation }) {
               })
           }
         </ScrollView>
-      </WhiteBottomSheet>
+      </WhiteBottomSheet> */}
     </View>
 
   );
@@ -111,7 +94,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderColor: COLORS.dark_gray_01,
     borderWidth: 2,
-    width: 100,
+    width: 115,
     height: 26,
   },
   dropdownMenu: {
@@ -119,4 +102,30 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderColor: COLORS.dark_gray_01,
   },
+  searchBar: {
+    listView: {
+      top: 95,
+      borderRadius: 2,
+      paddingHorizontal: 10
+    },
+    textInputContainer: {
+      top: 95,
+      paddingHorizontal: 10
+    },
+    textInput: {
+      height: 45,
+      color: COLORS.dark_gray_02,
+      fontSize: 16,
+      borderRadius: 30,
+      paddingHorizontal: 15, 
+    },
+    description: {
+      fontSize: 16,
+    }
+  },
+  containerBlue: {
+    flex: 1,
+    backgroundColor: COLORS.blue,
+    justifyContent: "center",
+  }
 })
