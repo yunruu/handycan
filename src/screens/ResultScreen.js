@@ -13,20 +13,12 @@ const Dashboard = ({ navigation }) => {
   return (
     <MapScreen>
       <View style={styles.container}>
-        <ProfileIcon />
+        <ProfileIcon onPress={() => navigation.navigate("Login")} />
         <SearchBar onChangeText={onChangeText} />
       </View>
+      <BottomSheet>
+        <Text style={TEXTS.bottomSheetHeader}>Most accessible places</Text>
+      </BottomSheet>
     </MapScreen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 50,
-  },
-});
-
-export default Dashboard;

@@ -99,7 +99,6 @@ const STYLES = StyleSheet.create({
   },
 });
 
-
 const BUTTONS = StyleSheet.create({
   primaryPink: {
     height: 50,
@@ -123,50 +122,50 @@ const BUTTONS = StyleSheet.create({
 });
 
 const TEXTS = StyleSheet.create({
-    header: {
-        // fontFamily: 'Inter',
-        fontSize: 26,
-        fontWeight: "bold",
-    },
+  header: {
+    // fontFamily: 'Inter',
+    fontSize: 26,
+    fontWeight: "bold",
+  },
 
-    headerWhite: {
-        // fontFamily: 'Inter',
-        fontSize: 26,
-        fontWeight: '700',
-        color: "#FFFFFF"
-    },
+  headerWhite: {
+    // fontFamily: 'Inter',
+    fontSize: 26,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
 
-    subHeaderBlack: {
-        // fontFamily: 'Inter',
-        fontSize: 24,
-        fontWeight: '700',
-    },
+  subHeaderBlack: {
+    // fontFamily: 'Inter',
+    fontSize: 24,
+    fontWeight: "700",
+  },
 
-    body: {
-        // fontFamily: 'Inter',
-        fontSize: 20,
-    },
+  body: {
+    // fontFamily: 'Inter',
+    fontSize: 20,
+  },
 
-    body22: {
-        // fontFamily: 'Inter',
-        fontSize: 22,
-    },
+  body22: {
+    // fontFamily: 'Inter',
+    fontSize: 22,
+  },
 
-    caption: {
-        // fontFamily: 'Inter',
-        fontSize: 14,
-    },
+  caption: {
+    // fontFamily: 'Inter',
+    fontSize: 14,
+  },
 
-    caption16: {
-        // fontFamily: 'Inter',
-        fontSize: 16,
-    },
+  caption16: {
+    // fontFamily: 'Inter',
+    fontSize: 16,
+  },
 
-    placeholder16: {
-        // fontFamily: 'Inter',
-        fontSize: 16,
-        color: COLORS.light_gray_02,
-    },
+  placeholder16: {
+    // fontFamily: 'Inter',
+    fontSize: 16,
+    color: COLORS.light_gray_02,
+  },
 
   placeholder14: {
     // fontFamily: 'Inter',
@@ -189,15 +188,15 @@ const TEXTS = StyleSheet.create({
 });
 
 const LOGOS = StyleSheet.create({
-    microLogo: {
-        width: 20,
-        height: 20,
-    },
-    
-    tinyLogo: {
-        width: 50,
-        height: 50,
-    },
+  microLogo: {
+    width: 20,
+    height: 20,
+  },
+
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
   mediumLogo: {
     width: 120,
     height: 120,
