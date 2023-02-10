@@ -6,6 +6,7 @@ import Login from '../screens/Login';
 import Register from '../screens/Register';
 import Dashboard from '../screens/Dashboard';
 import SearchPage from '../screens/SearchPage';
+import Feedback from '../screens/Feedback';
 
 const Stack = createStackNavigator();
 
@@ -13,6 +14,7 @@ export default function AuthStack() {
   return (
     <NavigationContainer>
         <Stack.Navigator>
+            <Stack.Screen name="Feedback" component={Feedback} options={{headerShown: false}} />
             <Stack.Screen name="SearchPage" component={SearchPage} options={{headerShown: false}} />
             <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
             <Stack.Screen name="Register" component={Register} options={{headerShown: false}} />
