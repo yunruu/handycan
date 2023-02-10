@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import ReviewScreen from "./src/screens/ReviewScreen";
 
 export default function App() {
-  return <ReviewScreen locationName={"Random Birmingham"} />;
+  return <ReviewScreen locationName={"Random Birmingham"} placeId={"100"} />;
 }
 
 const styles = StyleSheet.create({

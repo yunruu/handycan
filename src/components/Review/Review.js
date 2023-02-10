@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { COLORS } from "../../style/Colors";
 import UserLogo from "../Auth/UserLogo";
 import { Card } from "../UI/Card";
@@ -42,7 +42,7 @@ const ReviewText = ({ goodpt, aoi, suggestions }) => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
+    width: Dimensions.get("window").width * 0.9,
     margin: 5,
     padding: 15,
     borderColor: COLORS.dark_gray_01,

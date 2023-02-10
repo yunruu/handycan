@@ -1,14 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import Rating from "../components/Review/Rating";
 import Review from "../components/Review/Review";
-import { Card } from "../components/UI/Card";
 import PinkButton from "../components/UI/PinkButton";
 import { COLORS } from "../style/Colors";
 import { STYLES } from "../style/Styles";
+import { db } from "../config/firebaseConfig";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
-const ReviewScreen = ({ locationName }) => {
+const ReviewScreen = ({ placeId, locationName }) => {
+  // TODO: Tidy up backend
+  const [reviewsData, setReviewsData] = useState([
+    {
+      id: "10001111",
+      placeId: "100",
+      score: 3,
+      tag: "Mobility Accessibility",
+      text1: "1",
+      text2: "2",
+      text3: "3",
+      timestamp: new Date(),
+      uid: 0,
+      username: "Tim0",
+    },
+  ]);
+
+  // Skeleton code
+  // const reviewsRef = collection(db, "Reviews");
+  // const q = query(reviewsRef, where("placeId", "==", placeId));
+  // const getReviews = async () => {
+  //   try {
+  //     const data = [];
+  //     const querySnapshot = await getDocs(q);
+  //     querySnapshot.forEach((doc) => {
+  //       // doc.data() is never undefined for query doc snapshots
+  //       data.push({ ...doc.data(), id: doc.id });
+  //     });
+
+  //     setReviewsData([...data]);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  // getReviews();
   // TODO
   const getTotalRating = () => {
     return 3.0;
@@ -34,15 +70,16 @@ const ReviewScreen = ({ locationName }) => {
     );
   };
 
-  const renderItem = () => {
+  const renderItem = ({ item }) => {
     return (
       <Review
-        username={"johntan"}
-        timestamp={"07/02/2023 8:43pm"}
-        rating={3}
-        goodpt={"Lots of ramp and staff is very friendly to wheelchair users!"}
-        aoi={"Wide alleys and good food too!"}
-        suggestions={"Definitely recommend"}
+        username={item.username}
+        // timestamp={item.timestamp.toDate().toLocaleTimeString("en-US")}
+        timestamp={item.timestamp.toDateString()}
+        rating={item.score}
+        goodpt={item.text1}
+        aoi={item.text2}
+        suggestions={item.text3}
       />
     );
   };
@@ -51,10 +88,7 @@ const ReviewScreen = ({ locationName }) => {
       <View style={styles.reviewsContainer}>
         <Text style={styles.restaurantName}>{locationName}</Text>
         <ReviewHeader />
-        <FlatList
-          data={[{ review: "review1" }]}
-          renderItem={renderItem}
-        ></FlatList>
+        <FlatList data={reviewsData} renderItem={renderItem}></FlatList>
       </View>
     </View>
   );
