@@ -6,14 +6,7 @@ import Dashboard from "./src/screens/Dashboard";
 import MapScreen from "./src/screens/MapScreen";
 
 export default function App() {
-  return <AuthStack />;
+  return (
+    <AuthStack/>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
