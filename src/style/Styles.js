@@ -50,13 +50,13 @@ const STYLES = StyleSheet.create({
     paddingTop: 10,
   },
 
-  transparentContainerHor: {
-    flexDirection: "row",
-    backgroundColor: "transparent",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 30,
-  },
+    transparentContainerHor: {
+        flexDirection: 'row', 
+        backgroundColor: 'transparent', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        margin: 30,
+    },
 
   whiteBottomSheet: {
     backgroundColor: COLORS.white,
@@ -173,7 +173,6 @@ const TEXTS = StyleSheet.create({
     // fontFamily: 'Inter',
     fontSize: 16,
   },
-
   placeholder16: {
     // fontFamily: 'Inter',
     fontSize: 16,
@@ -207,15 +206,16 @@ const TEXTS = StyleSheet.create({
 });
 
 const LOGOS = StyleSheet.create({
-  microLogo: {
-    width: 20,
-    height: 20,
-  },
+    microLogo: {
+        width: 20,
+        height: 20,
+    },
+    
+    tinyLogo: {
+        width: 50,
+        height: 50,
+    },
 
-  tinyLogo: {
-    width: 50,
-    height: 50,
-  },
   mediumLogo: {
     width: 120,
     height: 120,
