@@ -1,17 +1,17 @@
 import React from "react";
-import { TextInput, StyleSheet, View } from "react-native";
-import { styles, TEXT, text } from "../../style/Styles";
+import { TextInput, View } from "react-native";
+import { STYLES, TEXTS } from "../../style/Styles";
 
 export default function InputTextbox(
   props,
   { placeholder, onChangeText, secureTextEntry }
 ) {
   return (
-    <View style={styles.textContainer1}>
+    <View style={STYLES.textContainer1}>
       <TextInput
         placeholder={props.placeholder}
         onChangeText={props.onChangeText}
-        style={TEXT.caption16}
+        style={TEXTS.caption16}
         secureTextEntry={props.secureTextEntry}
       />
       {props.children}

@@ -1,14 +1,18 @@
 import React from "react";
-import { TextInput, StyleSheet, View, Pressable, Text } from "react-native";
-import { BUTTONS, TEXT } from "../../style/Styles";
 
-export default function PinkButton({ children, onPress, textField }) {
-  return (
-    <View>
-      <Pressable style={BUTTONS.primaryPink} onPress={onPress}>
-        <Text style={TEXT.colorButtonText}>{textField}</Text>
-      </Pressable>
-      {children}
-    </View>
-  );
+import { View, Pressable, Text } from "react-native";
+import { BUTTONS, TEXTS } from "../../style/Styles";
+
+export default function PinkButton(props, { onPress, textField }) {
+    return (
+      <View>
+        <Pressable style={ BUTTONS.primaryPink }
+            onPress={ props.onPress }>
+              <Text style={ TEXTS.colorButtonText }>
+                { props.textField }
+              </Text>
+        </Pressable>
+      </View>
+    )
 }
+
