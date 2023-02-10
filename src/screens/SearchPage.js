@@ -56,20 +56,26 @@ function SearchPage ({ navigation }) {
       <ReturnButton onPress={() => navigation.navigate("Dashboard")} style={BUTTONS.returnButton} />
       <PageHeader header={"Search"} />
       {/* <SearchPageBar value={searchQuery} onChangeText={(searchQuery) => setSearchQuery(searchQuery)} /> */}
-      <GooglePlacesAutocomplete placeholder='Search' styles={{
-        textInputContainer: {
-          width: 320,
-          margin: 95,
-        },
-        textInput: {
-          height: 45,
-          color: COLORS.dark_gray_02,
-          fontSize: 16,
-          borderRadius: 30,
-          paddingHorizontal: 15,
-        }}} onPress={(data, details = null) => {
+      <GooglePlacesAutocomplete 
+        placeholder='Search' 
+        styles={{
+          textInputContainer: {
+            width: 320,
+            margin: 95,
+          },
+          textInput: {
+            height: 45,
+            color: COLORS.dark_gray_02,
+            fontSize: 16,
+            borderRadius: 30,
+            paddingHorizontal: 15, }}} 
+        onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
-          console.log(data, details); }} query={{key: 'YOUR API KEY',}} />
+          console.log(data, details); }} 
+        query={{key: process.env.GOOGLE_MAPS_API_KEY, components: 'country:sg'}} 
+        fetchDetails={true} 
+        onFail={error => console.log(error)}
+        onNotFound={() => console.log('no results')} />
       {/* <SearchTool style={STYLES.searchTool} onPress={() => searchLocation()} /> */}
       <View style={{position:'absolute', top:150, right: 30}}>
         <DropdownMenu onSelect={(filterType)=>setFilterType(filterType)} defaultButtonText={"Filter"} 
