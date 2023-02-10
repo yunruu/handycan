@@ -12,8 +12,9 @@ const Dashboard = ({ navigation }) => {
   const onChangeText = () => {};
   return (
     <Card>
-      <ProfileIcon onPress={() => navigation.navigate("Login")}
-        style={styles.container} />
+      <ProfileIcon 
+        onPress={() => navigation.navigate("Login")}
+        style={styles.profileIcon} />
       <SearchBar onChangeText={onChangeText} />
       <BottomSheet>
         <Text style={STYLES.bottomSheetHeader}>Most accessible places</Text>
@@ -26,7 +27,7 @@ const Dashboard = ({ navigation }) => {
 export default Dashboard;
 
 const styles = StyleSheet.create({
-  container: {
+  profileIcon: {
     flexDirection: "row",
     position: "absolute",
     top: 50,

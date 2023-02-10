@@ -17,6 +17,7 @@ const STYLES = StyleSheet.create({
     },
 
     containerBlue: {
+        flex: 1,
         backgroundColor: COLORS.blue,
         alignItems: "center",
         justifyContent: "center",
@@ -61,14 +62,12 @@ const STYLES = StyleSheet.create({
     whiteBottomSheet: {
         backgroundColor: COLORS.white,
         position: 'absolute',
-        height: "90%",
+        height: "70%",
         width: "100%",
         flexDirection: "row",
         top: 82,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        alignItems: "center",
-        justifyContent: "center",
     },
 
     pageHeader: {
@@ -96,7 +95,44 @@ const STYLES = StyleSheet.create({
     ratingBar: {
         justifyContent: 'center',
         flexDirection: 'row',
-    }
+    },
+
+    profileIcon: {
+        flexDirection: "row",
+        position: "absolute",
+        top: 50,
+        left: 15,
+    },
+
+    searchTool: {
+        flexDirection: "row",
+        position: "absolute",
+        top: 105,
+        right: 45,
+    },
+
+    loadingScreen: {
+        flex: 1,
+        opacity: 0.5,
+        backgroundColor: COLORS.light_pink,
+    },
+
+    listItems: {
+        paddingLeft: 15,
+        paddingRight: 15,
+        justifyContent: 'center',
+        height: 70,
+        borderBottomColor: COLORS.light_gray_01,
+        borderBottomWidth: 1,
+    },
+
+    searchbar: {
+        flexDirection: "row",
+        position: "absolute",
+        top: 80,
+        paddingBottom: 15,
+        width: 320,
+    },
 })
 
 const BUTTONS = StyleSheet.create({
@@ -144,6 +180,11 @@ const TEXTS = StyleSheet.create({
     body: {
         // fontFamily: 'Inter',
         fontSize: 20,
+    },
+
+    body22: {
+        // fontFamily: 'Inter',
+        fontSize: 22,
     },
 
     caption: {
