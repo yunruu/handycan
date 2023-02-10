@@ -12,6 +12,7 @@ function Login({ navigation }) {
     const [password, setPassword] = useState("");
     const [isLoading, setLoading] = useState(false);
 
+
     return (
         <View style={[STYLES.containerWhite, {paddingTop: 80 }]}>
             <Image 
