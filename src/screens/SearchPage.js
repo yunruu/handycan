@@ -24,14 +24,6 @@ function SearchPage ({ navigation }) {
   const [filterType, setFilterType] = React.useState(-1);
   const [sortType, setSortType] = React.useState(-1);
   const [searchedPid, setSearchedPid] = React.useState(-1);
-
-  // React.useEffect(() => {
-  //   async function getSearchQueries(searchQuery, filterType, sortType) {
-  //     const data = await getLocationList(searchQuery, filterType, sortType)
-  //     setSearchRes(data);
-  //   }
-  //   getSearchQueries()
-  // }, []);
   
   async function getSearchQueries(searchQuery, filterType, sortType) {
     const data = await getLocationList(searchQuery, filterType, sortType)
@@ -111,7 +103,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderColor: COLORS.dark_gray_01,
     borderWidth: 2,
-    width: 100,
+    width: 115,
     height: 26,
   },
   dropdownMenu: {
