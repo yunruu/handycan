@@ -99,13 +99,25 @@ const STYLES = StyleSheet.create({
   },
 });
 
-
 const BUTTONS = StyleSheet.create({
   primaryPink: {
     height: 50,
     backgroundColor: COLORS.pink,
     height: 45,
     width: 150,
+    borderRadius: 30,
+    margin: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  whiteButton: {
+    height: 50,
+    backgroundColor: COLORS.white,
+    height: 45,
+    width: 120,
     borderRadius: 30,
     margin: 18,
     alignItems: "center",
@@ -123,45 +135,44 @@ const BUTTONS = StyleSheet.create({
 });
 
 const TEXTS = StyleSheet.create({
-    header: {
-        // fontFamily: 'Inter',
-        fontSize: 26,
-        fontWeight: "bold",
-    },
+  header: {
+    // fontFamily: 'Inter',
+    fontSize: 26,
+    fontWeight: "bold",
+  },
 
-    headerWhite: {
-        // fontFamily: 'Inter',
-        fontSize: 26,
-        fontWeight: '700',
-        color: "#FFFFFF"
-    },
+  headerWhite: {
+    // fontFamily: 'Inter',
+    fontSize: 26,
+    fontWeight: "700",
+    color: "#FFFFFF",
+  },
 
-    subHeaderBlack: {
-        // fontFamily: 'Inter',
-        fontSize: 24,
-        fontWeight: '700',
-    },
+  subHeaderBlack: {
+    // fontFamily: 'Inter',
+    fontSize: 24,
+    fontWeight: "700",
+  },
 
-    body: {
-        // fontFamily: 'Inter',
-        fontSize: 20,
-    },
+  body: {
+    // fontFamily: 'Inter',
+    fontSize: 20,
+  },
 
-    body22: {
-        // fontFamily: 'Inter',
-        fontSize: 22,
-    },
+  body22: {
+    // fontFamily: 'Inter',
+    fontSize: 22,
+  },
 
-    caption: {
-        // fontFamily: 'Inter',
-        fontSize: 14,
-    },
+  caption: {
+    // fontFamily: 'Inter',
+    fontSize: 14,
+  },
 
-    caption16: {
-        // fontFamily: 'Inter',
-        fontSize: 16,
-    },
-
+  caption16: {
+    // fontFamily: 'Inter',
+    fontSize: 16,
+  },
   placeholder16: {
     // fontFamily: 'Inter',
     fontSize: 16,
@@ -179,6 +190,12 @@ const TEXTS = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: COLORS.white,
+  },
+  whiteButtonText: {
+    // fontFamily: 'Inter',
+    fontSize: 16,
+    fontWeight: "bold",
+    color: COLORS.black,
   },
   bottomSheetHeader: {
     fontWeight: "700",
