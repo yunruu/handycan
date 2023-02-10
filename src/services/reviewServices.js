@@ -2,7 +2,7 @@ import { db } from "../config/firebaseConfig";
 import { doc, setDoc, getDoc, deleteDoc, collection, query, where, getDocs, serverTimestamp} from "firebase/firestore";
 import { disabilityTag } from "../utils/DisabilityTag";
 import { filterBy } from "../utils/FilterBy";
-import { updateLocationAddReview, updateLocationDeleteReview } from "./locationServices";
+import { updateLocationAddReview, updateLocationDeleteReview } from "./LocationServices";
 
 /* CREATE */
 //To update review, call deleteReview and addReview with same placeId and uid.
