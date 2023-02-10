@@ -50,5 +50,5 @@ function Login({ navigation }) {
         </View>
     )
 }
-  
+
 export default Login;
