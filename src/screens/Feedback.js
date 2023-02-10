@@ -10,7 +10,7 @@ import DropdownMenu from '../components/UI/DropdownMenu'
 const disabilityType = ["Audio", "Mobility", "Visual", "Mental", "Other"];
 const maxRating = [1,2,3,4,5];
 
-function Feedback({ navigation, restaurant }) {
+function Feedback({ navigation, placeId }) {
     const [rating, setRating] = useState(0);
     const [feedback, onChangeFeedback] = useState("");
     const [disability, setDisability] = useState("");
@@ -25,7 +25,7 @@ function Feedback({ navigation, restaurant }) {
         if (rating == 0) {
             Alert.alert("Give an accessibility rating.")
         }
-        // pass feedback and disability to firebase on submit
+        // pass rating, feedback and disability to firebase on submit
     };
 
     return (
@@ -33,7 +33,7 @@ function Feedback({ navigation, restaurant }) {
             <ReturnButton onPress={() => navigation.navigate("Dashboard")} style={BUTTONS.returnButton} />
             <PageHeader header={"Feedback"} />
             <WhiteBottomSheet>
-                {/* To pass in restaurant name from feedback page caller */}
+                {/* To pass in location name from feedback page caller */}
                 <View style={{ alignItems: 'center' }}>
                     <Text style={TEXTS.subHeaderBlack}>Random Burger Place</Text>
                     <View style={STYLES.transparentContainerHor}>
