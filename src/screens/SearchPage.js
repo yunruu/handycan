@@ -106,9 +106,11 @@ const styles = StyleSheet.create({
     listView: {
       top: 95,
       borderRadius: 2,
+      paddingHorizontal: 10
     },
     textInputContainer: {
       top: 95,
+      paddingHorizontal: 10
     },
     textInput: {
       height: 45,
