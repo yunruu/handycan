@@ -12,7 +12,7 @@ const ResultScreen = ({ navigation, route }) => {
   const latitudeDelta = 0.01;
   const longitudeDelta = 0.01;
 
-  const { placeName, placeLat, placeLong } = route.params;
+  const { placeName, placeId, placeLat, placeLong } = route.params;
 
   const [location, setLocation] = useState({
     latitude: placeLat,
@@ -20,8 +20,6 @@ const ResultScreen = ({ navigation, route }) => {
     latitudeDelta: latitudeDelta,
     longitudeDelta: longitudeDelta,
   });
-
-  useEffect;
 
   return (
     <MapView style={styles.map} region={location} provider={PROVIDER_GOOGLE}>

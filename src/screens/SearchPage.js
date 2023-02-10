@@ -48,11 +48,14 @@ function SearchPage ({ navigation }) {
       <GooglePlacesAutocomplete 
         placeholder='Search' 
         styles={styles.searchBar}
-        onPress={(data) => {
+        onPress={(data, details) => {
           // 'details' is provided when fetchDetails = true
           setSearchedPName(data.description); 
           setSearchedPid(data.place_id); 
-          // navigation.navigate("Result", {placeName: searchedPName, placeId: searchedPid});
+          const coords = details.geometry.location;
+          const lat = coords.lat;
+          const lng = coords.lng;
+          navigation.navigate("ResultScreen", {placeName: searchedPName, placeId: searchedPid, searchedLat: lat, searchedLng: lng});
         }} 
         query={{key: process.env.GOOGLE_MAPS_API_KEY, components: 'country:sg'}} 
         fetchDetails={true} 
