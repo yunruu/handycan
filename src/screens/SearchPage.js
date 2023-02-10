@@ -11,12 +11,6 @@ function SearchPage ({ locationName, navigation }) {
   const onChangeLocation = () => {};
   return (
     <Card>
-      {/* <View style={styles.container}>
-        <Pressable onPress={() => navigation.navigate("Login")}>
-          <Image style={LOGOS.microLogo}
-                source={require("../../assets/profile_icon.png")} />
-        </Pressable>
-      </View> */}
       <ProfileIcon onPress={() => navigation.navigate("Login")} 
         style={styles.container} />
       
