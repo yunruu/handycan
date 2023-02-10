@@ -10,8 +10,8 @@ import { calcDist } from "../utils/CalcDist";
  * Add a location to database containing essential details
  * @param {String} placeId Textual identifier in accordance to Google Maps API location placeId
  * @param {String} name
- * @param {*} long Longitude
- * @param {*} lat Latitude
+ * @param {int} long Longitude
+ * @param {int} lat Latitude
  * @returns placeId if successful, null if not
  */
 export async function addLocation(placeId, name, long, lat) {
@@ -25,8 +25,8 @@ export async function addLocation(placeId, name, long, lat) {
         await setDoc(doc(db, "Locations", placeId), {
             placeId: placeId,
             name: name,
-            long: long,
-            lat: lat,
+            long: parseFloat(long),
+            lat: parseFloat(lat),
             reviewNumber: 0,
             locationScore: null,
             audioScore: null,
@@ -46,7 +46,7 @@ export async function addLocation(placeId, name, long, lat) {
 /**
  * Retrieves a location object from database
  * @param {String} placeId Textual identifier in accordance to Google Maps API location placeId
- * @returns placeId if successful, null if not
+ * @returns Location object if successful, null if not
  */
 export async function getLocation(placeId) {
     try {
@@ -151,7 +151,10 @@ export async function getLocationList(string, filterType, sortType, currLat, cur
             sortedList = filteredList.sort((locA, locB) => locA.reviewNumber - locB.reviewNumber);
             break;
         case sortBy.DISTANCE:
-            sortedList = filteredList.sort((locA, locB) => calcDist(currLat, currLon, locB.lat, locB.long) - calcDist(currLat, currLon, locA.lat, locA.long));       
+            sortedList = filteredList.sort((locA, locB) => 
+                calcDist(parseFloat(currLat), parseFloat(currLon), locB.lat, locB.long) 
+                - calcDist(parseFloat(currLat), parseFloat(currLon), locA.lat, locA.long)
+            );       
             break;
         default:
             sortedList = filteredList.sort((locA, locB) => locA.scoreType - locB.scoreType);
