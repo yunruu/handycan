@@ -36,6 +36,20 @@ const STYLES = StyleSheet.create({
         paddingTop: 15,
     },
 
+    feedbackContainer: {
+        backgroundColor: COLORS.white,
+        borderWidth: 2,
+        borderColor: COLORS.dark_gray_01,
+        borderRadius: 30,
+        width: 325,
+        height: 230,
+        marginTop: 30,
+        paddingLeft: 15,
+        paddingRight: 10,
+        paddingBottom: 10,
+        paddingTop: 10,
+    },
+
     transparentContainerHor: {
         flexDirection: 'row', 
         backgroundColor: 'transparent', 
@@ -62,6 +76,26 @@ const STYLES = StyleSheet.create({
         position: "absolute",
         top: 28,
         left: 60,
+    },
+
+    dropdownContainer: {
+        borderRadius: 30,
+        backgroundColor: COLORS.white,
+        borderColor: COLORS.dark_gray_01,
+        borderWidth: 2,
+        width: 325,
+        height: 45,
+    },
+
+    dropdownMenu: {
+        borderRadius: 30,
+        backgroundColor: COLORS.white,
+        borderColor: COLORS.dark_gray_01,
+    },
+
+    ratingBar: {
+        justifyContent: 'center',
+        flexDirection: 'row',
     }
 })
 
