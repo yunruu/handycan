@@ -8,7 +8,7 @@ function WhiteBottomSheet( {children, top, alignItems, justifyContent, height} )
         top: top || 82, 
         alignItems: alignItems, 
         justifyContent: justifyContent,
-        height: height}]}>
+        height: height || "90%"}]}>
         {children}
     </View>
   )
