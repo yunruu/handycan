@@ -1,19 +1,17 @@
 import React from "react";
 import { View, StyleSheet, Alert } from "react-native";
 import { BUTTONS } from "../style/Styles";
-import { getLocationList } from '../services/locationServices'
+import { getLocationList } from '../services/LocationServices'
 import ReturnButton from "../components/UI/ReturnButton";
 import PageHeader from "../components/UI/PageHeader";
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { COLORS } from "../style/Colors";
 
 function SearchPage ({ navigation }) {
-  const [searchRes, setSearchRes] = React.useState([]);
-  const [searchQuery, setSearchQuery] = React.useState("");
-  const [filterType, setFilterType] = React.useState(-1);
-  const [sortType, setSortType] = React.useState(-1);
-  const [searchedPid, setSearchedPid] = React.useState(-1);
-  const [searchedPName, setSearchedPName] = React.useState("");
+  const [placeId, setPlaceId] = React.useState(-1);
+  const [placeName, setPlaceName] = React.useState("National University of Singapore");
+  const [currLat, setCurrLat] = React.useState(1.290423);
+  const [currLong, setCurrLong] = React.useState(103.7804);
   
   async function getSearchQueries(searchQuery, filterType, sortType) {
     const data = await getLocationList(searchQuery, filterType, sortType, 0, 0);
@@ -32,25 +30,26 @@ function SearchPage ({ navigation }) {
   return (
     <View style={styles.containerBlue}>
       <PageHeader header={"Search"} />
-      {/* <SearchPageBar value={searchQuery} onChangeText={(searchQuery) => setSearchQuery(searchQuery)} /> */}
       <GooglePlacesAutocomplete 
         placeholder='Search' 
         styles={styles.searchBar}
         onPress={(data, details) => {
           // 'details' is provided when fetchDetails = true
-          setSearchedPName(data.description); 
-          setSearchedPid(data.place_id); 
+          const name = data.description;
+          const id = data.place_id
           const coords = details.geometry.location;
           const lat = coords.lat;
           const lng = coords.lng;
-          navigation.navigate("ResultScreen", {placeName: searchedPName, placeId: searchedPid, searchedLat: lat, searchedLng: lng});
+          setPlaceId(id);
+          setPlaceName(name);
+          navigation.navigate("ResultScreen", {placeName: name, placeId: id, lat: lat, long: lng});
         }} 
         query={{key: process.env.GOOGLE_MAPS_API_KEY, components: 'country:sg'}} 
         fetchDetails={true} 
         listViewDisplayed="auto"
         onFail={error => console.log(error)}
         onNotFound={() => console.log('no results')} />
-      <ReturnButton onPress={() => navigation.navigate("Dashboard")} style={BUTTONS.returnButton} />
+      <ReturnButton onPress={() => navigation.navigate("ResultScreen",{placeName: placeName, placeId: placeId, lat: currLat, long: currLong})} style={BUTTONS.returnButton} />
       {/* <SearchTool style={STYLES.searchTool} onPress={() => searchLocation()} /> */}
       {/* <View style={{position:'absolute', top:150, right: 30}}>
         <DropdownMenu onSelect={(filterType)=>setFilterType(filterType)} defaultButtonText={"Filter"} 
