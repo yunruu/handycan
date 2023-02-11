@@ -62,14 +62,27 @@ const STYLES = StyleSheet.create({
   whiteBottomSheet: {
     backgroundColor: COLORS.white,
     position: "absolute",
-    height: "90%",
+    height: "60%",
     width: "100%",
     flexDirection: "row",
-    top: 82,
+    bottom: 0,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  blueBottomSheet: {
+    backgroundColor: COLORS.blue,
+    position: "absolute",
+    height: "25%",
+    width: "100%",
+    bottom: 0,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: 5
   },
 
   pageHeader: {
@@ -114,13 +127,12 @@ const BUTTONS = StyleSheet.create({
 
   whiteButton: {
     backgroundColor: COLORS.white,
-    height: 45,
-    width: 120,
+    height: 40,
+    width: 100,
     borderRadius: 30,
-    margin: 18,
+    marginHorizontal: 18,
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row",
   },
 
   returnButton: {
@@ -166,6 +178,11 @@ const TEXTS = StyleSheet.create({
     // fontFamily: 'Inter',
     fontSize: 14,
   },
+  caption14White: {
+    // fontFamily: 'Inter',
+    fontSize: 14,
+    color: '#FFFFFF'
+  },
 
   caption16: {
     // fontFamily: 'Inter',
@@ -198,8 +215,7 @@ const TEXTS = StyleSheet.create({
   bottomSheetHeader: {
     fontWeight: "700",
     color: COLORS.white,
-    fontSize: 20,
-    alignSelf: "center",
+    fontSize: 17,
   },
 });
 
