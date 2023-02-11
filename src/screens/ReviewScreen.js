@@ -10,29 +10,32 @@ import { db } from "../config/firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { getReviewList } from "../services/reviewServices";
 import { filterBy } from "../utils/FilterBy";
-import { getLocation } from "../services/locationServices";
+import { getLocation } from "../services/LocationServices";
 
-const ReviewScreen = async ({ placeId, locationName }) => {
+const ReviewScreen = async ({ navigation, route }) => {
   // TODO: Tidy up backend
+  const {placeName, placeId, lat, long} = route.params;
   const [reviewsData, setReviewsData] = useState([]);
 
-  // Skeleton code
-  // const reviewsRef = collection(db, "Reviews");
-  // const q = query(reviewsRef, where("placeId", "==", placeId));
-  // const getReviews = async () => {
-  //   try {
-  //     const data = [];
-  //     const querySnapshot = await getDocs(q);
-  //     querySnapshot.forEach((doc) => {
-  //       // doc.data() is never undefined for query doc snapshots
-  //       data.push({ ...doc.data(), id: doc.id });
-  //     });
+  console.log(placeName,placeId,lat,long);
 
-  //     setReviewsData([...data]);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  // Skeleton code
+  const reviewsRef = collection(db, "Reviews");
+  const q = query(reviewsRef, where("placeId", "==", placeId));
+  const getReviews = async () => {
+    try {
+      const data = [];
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        data.push({ ...doc.data(), id: doc.id });
+      });
+
+      setReviewsData([...data]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
 
   const reviews = await getReviewList(placeId, null);
@@ -80,7 +83,7 @@ const ReviewScreen = async ({ placeId, locationName }) => {
   return (
     <View style={STYLES.containerPink}>
       <View style={styles.reviewsContainer}>
-        <Text style={styles.restaurantName}>{locationName}</Text>
+        <Text style={styles.restaurantName}>{placeName}</Text>
         <ReviewHeader />
         <FlatList data={reviewsData} renderItem={renderItem}></FlatList>
       </View>
