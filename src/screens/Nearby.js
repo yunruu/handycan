@@ -1,8 +1,10 @@
 import { View, Text, ScrollView, Pressable, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
-import { STYLES, TEXTS } from '../style/Styles'
+import { STYLES, TEXTS, BUTTONS } from '../style/Styles'
 import WhiteBottomSheet from '../components/UI/WhiteBottomSheet'
 import { COLORS } from '../style/Colors'
+import ReturnButton from '../components/UI/ReturnButton'
+import PageHeader from '../components/UI/PageHeader'
 
 const round2dp = (val) => {
     return val.toFixed(1);
@@ -11,25 +13,36 @@ const round2dp = (val) => {
 const filterTypes = ["Audio", "Mobility", "Visual", "Mental", "Other"];
 
 function Nearby({navigation, route}) {
-    const {lat, lng} = route.params;
+    const {placeName, placeId, lat, long} = route.params;
     const [searchRes, setSearchRes] = React.useState([]);
-    const [pid, setPid] = useState(-1);
 
-    const handleLocationPress = (pid) => {
+    console.log("lat: " + lat + ", long: " + long);
+
+    const handleLocationPress = (newName, newId, newLat, newLong) => {
         setPid(pid);
-        navigation.navigate("Feedback");
+        navigation.navigate("ResultScreen", {
+            placeName: newName, 
+            placeId: newId, 
+            lat: newLat, 
+            long: newLong});
     }
 
     return (
         <View style={STYLES.containerBlue}>
-        <WhiteBottomSheet top={200} height={"70%"}>
+        <ReturnButton onPress={() => navigation.navigate("ResultScreen", {
+            placeName: placeName, 
+            placeId: placeId, 
+            lat: lat, 
+            long: long})} style={BUTTONS.returnButton} />
+        <PageHeader header={"Nearby Locations"} />
+        <WhiteBottomSheet>
             <ScrollView style={{paddingTop: 20}}>
             {
                 searchRes == [] 
                 ? <View/>
                 : searchRes.map(elem => {
                     return(
-                    <Pressable key={elem.placeId} style={styles.listItems} onPress={() => handleLocationPress(elem.placeId)}>
+                    <Pressable key={elem.placeId} style={styles.listItems} onPress={() => handleLocationPress(elem.name, elem.placeId, elem.lat, elem.long)}>
                         <Text style={TEXTS.body22}>{elem.name} </Text>
                         <Text>Rating: {round2dp(elem.locationScore)}</Text>
                     </Pressable>
