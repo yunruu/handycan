@@ -17,6 +17,7 @@ const STYLES = StyleSheet.create({
   },
 
   containerBlue: {
+    flex:1,
     backgroundColor: COLORS.blue,
     alignItems: "center",
     justifyContent: "center",
@@ -101,7 +102,6 @@ const STYLES = StyleSheet.create({
 
 const BUTTONS = StyleSheet.create({
   primaryPink: {
-    height: 50,
     backgroundColor: COLORS.pink,
     height: 45,
     width: 150,
@@ -110,11 +110,9 @@ const BUTTONS = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
-    alignItems: "center",
   },
 
   whiteButton: {
-    height: 50,
     backgroundColor: COLORS.white,
     height: 45,
     width: 120,
@@ -123,7 +121,6 @@ const BUTTONS = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
-    alignItems: "center",
   },
 
   returnButton: {
@@ -162,6 +159,7 @@ const TEXTS = StyleSheet.create({
   body22: {
     // fontFamily: 'Inter',
     fontSize: 22,
+    fontWeight: '500'
   },
 
   caption: {

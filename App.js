@@ -8,6 +8,7 @@ import Dashboard from './src/screens/Dashboard';
 import SearchPage from './src/screens/SearchPage';
 import Feedback from './src/screens/Feedback';
 import ResultScreen from './src/screens/ResultScreen';
+import Nearby from "./src/screens/Nearby";
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
+          <Stack.Screen name="Nearby" component={Nearby} options={{headerShown: false}} />
           <Stack.Screen name="SearchPage" component={SearchPage} options={{headerShown: false}} />
           <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
           <Stack.Screen name="Register" component={Register} options={{headerShown: false}} />
