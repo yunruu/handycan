@@ -2,10 +2,9 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { STYLES } from '../../style/Styles'
 
-function BlueBottomSheet( {children, top, alignItems, justifyContent} ) {
+function BlueBottomSheet( {children, alignItems, justifyContent} ) {
   return (
     <View style={[STYLES.blueBottomSheet, {
-        // top: top || 82, 
         alignItems: alignItems || 'center', 
         justifyContent: justifyContent,
         }]}>

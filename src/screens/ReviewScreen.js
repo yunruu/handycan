@@ -1,77 +1,75 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import Rating from "../components/Review/Rating";
 import Review from "../components/Review/Review";
 import PinkButton from "../components/UI/PinkButton";
 import { COLORS } from "../style/Colors";
-import { STYLES } from "../style/Styles";
-import { db } from "../config/firebaseConfig";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { BUTTONS, STYLES } from "../style/Styles";
 import { getReviewList } from "../services/reviewServices";
 import { filterBy } from "../utils/FilterBy";
 import { getLocation } from "../services/LocationServices";
+import ReturnButton from "../components/UI/ReturnButton";
+import PageHeader from "../components/UI/PageHeader";
 
-const ReviewScreen = async ({ navigation, route }) => {
+const ReviewScreen = ({ navigation, route }) => {
   // TODO: Tidy up backend
   const {placeName, placeId, lat, long} = route.params;
   const [reviewsData, setReviewsData] = useState([]);
+  const [totalRating, setTotalRating] = useState(0);
+  const [reviewNum, setReviewNum] = useState(0);
 
-  console.log(placeName,placeId,lat,long);
+  console.log(placeName + placeId + lat + long);
 
-  // Skeleton code
-  const reviewsRef = collection(db, "Reviews");
-  const q = query(reviewsRef, where("placeId", "==", placeId));
-  const getReviews = async () => {
-    try {
-      const data = [];
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        data.push({ ...doc.data(), id: doc.id });
-      });
-
-      setReviewsData([...data]);
-    } catch (err) {
-      console.log(err);
+  useEffect(() => {
+    async function getReviewsList() {
+      const res = await getReviewList(placeId.toString(), null);
+      setReviewsData(res);
     }
-  };
+    
+    getReviewsList();
+  }, []);
 
+  useEffect(() => {
+    async function getTotalRating() {
+      const res = await getLocation(placeId);
+      const rating = res.locationScore.toFixed(1);
+      setTotalRating(rating);
+    }
+    
+    getTotalRating();
+  }, []);
 
-  const reviews = await getReviewList(placeId, null);
-  setReviewsData(reviews);
+  useEffect(() => {
+    async function getTotalReviews() {
+      const res = await getLocation(placeId);
+      const num = res.reviewNumber;
+      setReviewNum(num);
+    }
+    
+    getTotalReviews();
+  }, []);
 
-  const getTotalRating = async () => {
-    const location = await getLocation(placeId);
-    return location.locationScore;
-  };
-
-  // TODO
-  const getTotalReviews = async () => {
-    const location = await getLocation(placeId);
-    return location.reviewNumber;
-  };
+  console.log("Reviews data: " + reviewsData); 
 
   const ReviewHeader = () => {
     return (
       <View style={styles.reviewHeaderContainer}>
         <View style={styles.reviewDetailsContainer}>
           <View style={styles.fullRating}>
-            <Rating rating={getTotalRating()} />
-            <Text>({getTotalRating().toFixed(1)})</Text>
+            <Rating rating={totalRating} />
+            <Text> {totalRating}</Text>
           </View>
-          <Text>{getTotalReviews()} reviews</Text>
+          <Text>{reviewNum} reviews</Text>
         </View>
         <PinkButton textField={"Post"} />
       </View>
     );
   };
 
-  const renderItem = ({ item }) => {
+  const renderItem = ( {item} ) => {
     return (
       <Review
         username={item.username}
-        // timestamp={item.timestamp.toDate().toLocaleTimeString("en-US")}
         timestamp={item.timestamp.toDateString()}
         rating={item.score}
         goodpt={item.text1}
@@ -80,8 +78,11 @@ const ReviewScreen = async ({ navigation, route }) => {
       />
     );
   };
+
   return (
     <View style={STYLES.containerPink}>
+      <ReturnButton onPress={() => navigation.navigate("ResultScreen", {placeName: placeName, placeId: placeId, lat: lat, long: long})} style={BUTTONS.returnButton} />
+      <PageHeader header="Reviews" />
       <View style={styles.reviewsContainer}>
         <Text style={styles.restaurantName}>{placeName}</Text>
         <ReviewHeader />
@@ -116,6 +117,10 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: "auto",
     alignItems: "center",
+  },
+  reviewDetailsContainer: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
 });
 
