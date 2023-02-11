@@ -10,7 +10,8 @@ import DropdownMenu from '../components/UI/DropdownMenu'
 const disabilityType = ["Audio", "Mobility", "Visual", "Mental", "Other"];
 const maxRating = [1,2,3,4,5];
 
-function Feedback({ navigation, locationName }) {
+function Feedback({ navigation, route }) {
+    const {placeName} = route.params;
     const [rating, setRating] = useState(0);
     const [feedback, onChangeFeedback] = useState("");
     const [disability, setDisability] = useState("");
@@ -33,7 +34,7 @@ function Feedback({ navigation, locationName }) {
             <WhiteBottomSheet alignItems={"center"} justifyContent={"center"} height={"90%"}>
                 {/* To pass in location name from feedback page caller */}
                 <View style={{ alignItems: 'center' }}>
-                    <Text style={TEXTS.subHeaderBlack}>{locationName}</Text>
+                    <Text style={TEXTS.subHeaderBlack}>{placeName}</Text>
                     <View style={STYLES.transparentContainerHor}>
                         <Text style={[TEXTS.caption16, {paddingRight: 5}]}>
                             Accessibility Rating:
