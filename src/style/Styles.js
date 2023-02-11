@@ -88,7 +88,7 @@ const STYLES = StyleSheet.create({
   pageHeader: {
     flexDirection: "row",
     position: "absolute",
-    top: 28,
+    top: 35,
     left: 60,
   },
 
@@ -116,8 +116,8 @@ const STYLES = StyleSheet.create({
 const BUTTONS = StyleSheet.create({
   primaryPink: {
     backgroundColor: COLORS.pink,
-    height: 45,
-    width: 150,
+    height: 40,
+    width: 130,
     borderRadius: 30,
     margin: 18,
     alignItems: "center",
@@ -133,12 +133,14 @@ const BUTTONS = StyleSheet.create({
     marginHorizontal: 18,
     alignItems: "center",
     justifyContent: "center",
+    position: 'relative',
+    bottom: 10,
   },
 
   returnButton: {
     flexDirection: "row",
     position: "absolute",
-    top: 35,
+    top: 42,
     left: 20,
   },
 });

@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View, Button, Pressable, Alert } from "react-native";
+import { Text, StyleSheet, View, Button, Pressable, Alert, StatusBar } from "react-native";
 import React, { useEffect, useState } from "react";
 import SearchBar from "../components/Dashboard/SearchBar";
 import BottomSheet from "../components/Dashboard/BottomSheet";
@@ -12,6 +12,7 @@ import { COLORS } from "../style/Colors";
 import WhiteBottomSheet from "../components/UI/WhiteBottomSheet";
 import BlueBottomSheet from "../components/UI/BlueBottomSheet";
 import ReturnButton from "../components/UI/ReturnButton";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 // navigator.geolocation = require('@react-native-community/geolocation');
 
@@ -20,6 +21,7 @@ const ResultScreen = ({ navigation, route }) => {
   const latitudeDelta = 0.01;
   const longitudeDelta = 0.01;
   console.log(placeName);
+  console.log(placeId);
 
   const [location, setLocation] = useState({
     latitude: lat,
@@ -29,12 +31,13 @@ const ResultScreen = ({ navigation, route }) => {
   });
 
   return (
-    <MapView style={styles.map} region={location} provider={PROVIDER_GOOGLE} >
+    <SafeAreaView style={styles.safeAreaContainer}>
+      <MapView style={styles.map} region={location} provider={PROVIDER_GOOGLE} >
         <ReturnButton onPress={() => navigation.navigate("SearchPage")} />
         <Pressable onPress={() => navigation.navigate("SearchPage")}>
           <View style={styles.searchBar} />
         </Pressable>
-        <BlueBottomSheet top={510} height={"30%"} justifyContent={'center'}>
+        <BlueBottomSheet justifyContent={'center'}>
             <Text style={[TEXTS.bottomSheetHeader,{alignSelf:'center', marginTop:20}]}>{placeName}</Text>
             <Text style={[TEXTS.caption14White, {alignSelf:'center', marginVertical: 5}]}>Latitude: {location.latitude}, Longitude: {location.longitude}</Text>
             <View style={styles.buttonContainer}>
@@ -50,8 +53,8 @@ const ResultScreen = ({ navigation, route }) => {
                   placeId: placeId, 
                   lat: lat, 
                   long: long})} />
-          </View>
-        </BlueBottomSheet>
+            </View>
+          </BlueBottomSheet>
         <Marker
           coordinate={{
             latitude: location.latitude,
@@ -69,7 +72,8 @@ const ResultScreen = ({ navigation, route }) => {
           <WhiteButton textField={"Nearby"} />
         </View>
       </BlueBottomSheet> */}
-    </MapView>
+      </MapView>
+    </SafeAreaView>
   );
 };
 
@@ -123,6 +127,10 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     width: "90%",
     alignSelf: 'center',
+  },
+  safeAreaContainer: {
+    flex: 1,
+    marginTop:StatusBar.currentHeight
   },
 });
 
